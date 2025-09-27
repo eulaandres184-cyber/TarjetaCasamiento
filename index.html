@@ -1,3 +1,13 @@
+    /* Imágenes de galería del mismo tamaño */
+    .galeria-img {
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      height: 340px;
+      margin: 0 auto;
+      display: block;
+    }
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -177,9 +187,9 @@
       <div class="container text-center">
   <h2 class="mb-4 titulo-grande" style="font-family: 'Dancing Script', cursive;">Galería de Fotos</h2>
         <div class="row justify-content-center">
-          <div class="col-10 col-md-4 mb-3"><img src="img/foto1.jpeg" class="img-fluid rounded shadow" alt="Foto 1"></div>
-          <div class="col-10 col-md-4 mb-3"><img src="img/foto2.jpeg" class="img-fluid rounded shadow" alt="Foto 2"></div>
-          <div class="col-10 col-md-4 mb-3"><img src="img/foto3.jpeg" class="img-fluid rounded shadow" alt="Foto 3"></div>
+          <div class="col-10 col-md-4 mb-3"><img src="img/foto1.jpeg" class="img-fluid rounded shadow galeria-img" alt="Foto 1"></div>
+          <div class="col-10 col-md-4 mb-3"><img src="img/foto2.jpeg" class="img-fluid rounded shadow galeria-img" alt="Foto 2"></div>
+          <div class="col-10 col-md-4 mb-3"><img src="img/foto3.jpg" class="img-fluid rounded shadow galeria-img" alt="Foto 3"></div>
         </div>
       </div>
     </section>
