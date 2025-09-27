@@ -11,3 +11,26 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+// Scroll suave con offset para navbar fija
+document.addEventListener('DOMContentLoaded', function() {
+  const navbar = document.querySelector('.navbar.fixed-top');
+  const navLinks = document.querySelectorAll('a.nav-link');
+  if (navbar && navLinks.length > 0) {
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            const navbarHeight = navbar.offsetHeight;
+            const targetRect = target.getBoundingClientRect();
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const targetY = targetRect.top + scrollTop - navbarHeight;
+            window.scrollTo({ top: targetY, behavior: 'smooth' });
+          }
+        }
+      });
+    });
+  }
+});

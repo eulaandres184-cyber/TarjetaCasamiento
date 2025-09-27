@@ -1,13 +1,3 @@
-    /* Imágenes de galería del mismo tamaño */
-    .galeria-img {
-      width: 100%;
-      max-width: 320px;
-      aspect-ratio: 3/4;
-      object-fit: cover;
-      height: 340px;
-      margin: 0 auto;
-      display: block;
-    }
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,8 +11,9 @@
   <link rel="stylesheet" href="styles.css">
   <style>
     .titulo-grande {
-      font-size: 5rem !important;
+      font-size: 4rem !important;
       line-height: 1.1;
+      font-family: 'Dancing Script', cursive;
     }
     /* Contenedores personalizados para la sección Evento */
     .evento-box {
@@ -38,8 +29,8 @@
       box-shadow: 0 8px 32px 0 rgba(139,92,42,0.18), 0 3px 12px 0 rgba(139,92,42,0.18);
       transform: translateY(-4px) scale(1.02);
     }
-    .evento-box h3 {
-      font-family: 'Dancing Script', cursive;
+    .evento-box h3, .fiesta-box h3, h3 {
+      font-family: 'Montserrat', Arial, sans-serif !important;
       font-size: 2rem;
       color: #8B5C2A;
       margin-bottom: 1rem;
@@ -126,7 +117,7 @@
   <div class="main-container">
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top" style="backdrop-filter: blur(6px); background: rgba(255,255,255,0.15) !important;">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#header">L y A</a>
+        <a class="navbar-brand" style="font-family: 'Dancing Script', cursive;" href="#header">L y A</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -142,17 +133,17 @@
       </div>
     </nav>
 
-  <header id="header" class="vh-100 d-flex flex-column justify-content-center align-items-center bg-header text-white text-center section">
-      <h1 class="display-3 fw-bold titulo-grande" style="font-family: 'Dancing Script', cursive;">Lua y Andrés</h1>
+  <header id="header" class="section bg-header text-white text-center">
+  <h3 class="titulo-grande">Lua y Andrés</h3>
       <p class="lead fs-2">¡Nos Casamos!</p>
       <p class="fs-4">21 de febrero de 2026</p>
       <div id="contador" class="mt-3 fs-3"></div>
-      <audio id="musica-fondo" src="musica/musica.mp3" autoplay loop style="display:none;"></audio>
+      <audio id="musica-fondo" src="musica/Tu jardín con enanitos.mp3" autoplay loop style="display:none;"></audio>
     </header>
 
-  <section id="evento" class="vh-100 d-flex flex-column justify-content-center align-items-center section bg-evento">
+  <section id="evento" class="section bg-evento">
       <div class="container text-center">
-  <h2 class="mb-4 titulo-grande" style="font-family: 'Dancing Script', cursive;">Detalles del Evento</h2>
+  <h2 class="mb-4 titulo-grande">Detalles del Evento</h2>
         <div class="row justify-content-center">
           <div class="col-12 col-md-4 mb-4">
             <div class="evento-box h-100">
@@ -183,35 +174,35 @@
       </div>
     </section>
 
-  <section id="galeria" class="vh-100 d-flex flex-column justify-content-center align-items-center section bg-galeria">
+  <section id="galeria" class="section bg-galeria">
       <div class="container text-center">
-  <h2 class="mb-4 titulo-grande" style="font-family: 'Dancing Script', cursive;">Galería de Fotos</h2>
+  <h2 class="mb-4 titulo-grande">Galería de Fotos</h2>
         <div class="row justify-content-center">
-          <div class="col-10 col-md-4 mb-3"><img src="img/foto1.jpeg" class="img-fluid rounded shadow galeria-img" alt="Foto 1"></div>
-          <div class="col-10 col-md-4 mb-3"><img src="img/foto2.jpeg" class="img-fluid rounded shadow galeria-img" alt="Foto 2"></div>
-          <div class="col-10 col-md-4 mb-3"><img src="img/foto3.jpg" class="img-fluid rounded shadow galeria-img" alt="Foto 3"></div>
+          <div class="col-10 col-md-4 mb-3"><img src="img/foto1.jpeg" class="galeria-img" alt="Foto 1"></div>
+          <div class="col-10 col-md-4 mb-3"><img src="img/foto2.jpeg" class="galeria-img" alt="Foto 2"></div>
+          <div class="col-10 col-md-4 mb-3"><img src="img/foto3.jpg" class="galeria-img" alt="Foto 3"></div>
         </div>
       </div>
     </section>
 
-  <section id="rsvp" class="vh-100 d-flex flex-column justify-content-center align-items-center section bg-rsvp">
+  <section id="rsvp" class="section bg-rsvp">
       <div class="container">
-        <h2 class="mb-4 titulo-grande text-center" style="font-family: 'Dancing Script', cursive;">Confirmar Asistencia</h2>
+  <h2 class="mb-4 titulo-grande text-center">Confirmar Asistencia</h2>
         <div class="row justify-content-center align-items-stretch">
           <div class="col-12 col-md-6 mb-4 d-flex flex-column align-items-center">
-            <div class="evento-box w-100" style="max-width: 400px;">
+              <div class="evento-box">
               <form id="form-rsvp" class="mx-auto w-100">
                 <div class="mb-3">
-                  <input type="text" name="nombre" class="form-control" placeholder="Tu nombre" required>
+                  <input type="text" name="nombre" placeholder="Tu nombre" required>
                 </div>
                 <div class="mb-3">
-                  <input type="number" name="invitados" class="form-control" placeholder="Cantidad de invitados" min="1" required>
+                  <input type="number" name="invitados" placeholder="Cantidad de invitados" min="1" required>
                 </div>
                 <div class="mb-3">
-                  <input type="email" name="email" class="form-control" placeholder="Correo electrónico" required>
+                  <input type="email" name="email" placeholder="Correo electrónico" required>
                 </div>
                 <div class="mb-3">
-                  <textarea name="mensaje" class="form-control" placeholder="Mensaje opcional"></textarea>
+                  <textarea name="mensaje" placeholder="Mensaje opcional"></textarea>
                 </div>
                 <button type="submit" class="btn btn-marron w-100">Confirmar</button>
               </form>
@@ -219,8 +210,8 @@
             </div>
           </div>
           <div class="col-12 col-md-6 mb-4 d-flex flex-column align-items-center justify-content-center">
-            <div class="evento-box w-100" style="max-width: 400px;">
-              <h3 class="mb-3 text-center" style="font-family: 'Dancing Script', cursive; color: #8B5C2A; font-size: 2.5rem;">Tarjeta</h3>
+              <div class="evento-box">
+              <h3 class="mb-3 text-center">Tarjeta</h3>
               <ul class="list-unstyled mb-3">
                 <li><strong>Adulto:</strong> $75.000</li>
                 <li><strong>Menor (4 a 12 años):</strong> $37.500</li>
@@ -229,7 +220,7 @@
               <p class="mb-1"><strong>Medio de pago:</strong> Transferencia bancaria</p>
               <p class="mb-1"><strong>Alias:</strong> BodaLuayAndres</p>
               <p class="mb-1"><strong>Titular:</strong> Andrés Eula</p>
-              <p class="mt-3 mb-0 text-muted" style="font-size: 0.95rem;">Por favor, indicar nombre y cantidad de invitados en la transferencia.</p>
+              <p class="mt-3 mb-0 text-muted">Por favor, indicar nombre y cantidad de invitados en la transferencia.</p>
             </div>
           </div>
         </div>
@@ -237,29 +228,29 @@
     </section>
 
   <!-- Sección La Fiesta -->
-  <section id="lafiesta" class="vh-100 d-flex flex-column justify-content-center align-items-center section bg-evento">
+  <section id="lafiesta" class="section bg-evento">
     <div class="container text-center">
-      <h2 class="mb-4 titulo-grande" style="font-family: 'Dancing Script', cursive;">La Fiesta</h2>
+  <h2 class="mb-4 titulo-grande">La Fiesta</h2>
       <div class="row justify-content-center">
         <!-- Columna 1: Sugerir música -->
         <div class="col-12 col-md-4 mb-4">
           <div class="fiesta-box h-100">
             <h3>¿Qué música no debe faltar?</h3>
-            <button type="button" class="btn btn-marron mt-2" data-bs-toggle="modal" data-bs-target="#modalSugerirTema">Sugerir Tema</button>
+            <button type="button" class="btn btn-marron" data-bs-toggle="modal" data-bs-target="#modalSugerirTema">Sugerir Tema</button>
           </div>
         </div>
         <!-- Columna 2: Alojamientos -->
         <div class="col-12 col-md-4 mb-4">
           <div class="fiesta-box h-100">
             <h3>Alojamientos</h3>
-            <button type="button" class="btn btn-marron mt-2" data-bs-toggle="modal" data-bs-target="#modalAlojamientos">Ver Alojamientos</button>
+            <button type="button" class="btn btn-marron" data-bs-toggle="modal" data-bs-target="#modalAlojamientos">Ver Alojamientos</button>
           </div>
         </div>
         <!-- Columna 3: Instagram -->
         <div class="col-12 col-md-4 mb-4">
           <div class="fiesta-box h-100">
             <h3>@BodaLuayAndres</h3>
-            <a href="https://instagram.com/BodaLuayAndres" target="_blank" class="btn btn-marron mt-2" style="font-size:1.2rem;">Compartir Fotos</a>
+            <a href="https://instagram.com/BodaLuayAndres" target="_blank" class="btn btn-marron mt-2">Compartir Fotos</a>
           </div>
         </div>
       </div>
@@ -276,11 +267,11 @@
             <form id="form-sugerir-tema">
               <div class="mb-3">
                 <label for="nombre-sugerente" class="form-label">Tu nombre</label>
-                <input type="text" class="form-control" id="nombre-sugerente" name="nombre" required>
+                <input type="text" id="nombre-sugerente" name="nombre" required>
               </div>
               <div class="mb-3">
                 <label for="youtube-link" class="form-label">Enlace a YouTube</label>
-                <input type="url" class="form-control" id="youtube-link" name="youtube" placeholder="https://youtube.com/..." required>
+                <input type="url" id="youtube-link" name="youtube" placeholder="https://youtube.com/..." required>
               </div>
               <button type="submit" class="btn btn-marron w-100">Enviar sugerencia</button>
             </form>
@@ -304,25 +295,21 @@
               <li><a href="https://maps.app.goo.gl/pdZt854fFf3L4L9j8" target="_blank">Hotel Goggiano/a></li>
               <li><a href="https://maps.app.goo.gl/ekJ5oEDqr2iBwGTM9" target="_blank">Casa por Dia 2302595395</a></li>
             </ul>
-            <p class="mt-3 mb-0 text-muted" style="font-size: 0.95rem;">Consulta disponibilidad y reserva directamente con cada alojamiento.</p>
+            <p class="mt-3 mb-0 text-muted">Consulta disponibilidad y reserva directamente con cada alojamiento.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contacto" class="vh-100 d-flex flex-column justify-content-center align-items-center section bg-contacto">
+  <section id="contacto" class="section bg-contacto">
       <div class="container text-center">
-        <h2 class="mb-4">Contacto</h2>
+        <h2 class="titulo-grande">Contacto</h2>
         <div class="evento-box mx-auto mb-4" style="max-width: 400px;">
           <form>
-            <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Tu nombre" required>
-            </div>
-            <div class="mb-3">
-              <textarea class="form-control" placeholder="Mensaje" rows="3" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-marron w-100">Enviar mensaje</button>
+            <input type="text" placeholder="Tu nombre" required>
+            <textarea placeholder="Mensaje" rows="3" required></textarea>
+            <button type="submit" class="btn btn-marron">Enviar mensaje</button>
           </form>
         </div>
   <div class="mb-2"><strong>Lua</strong> <a href="https://wa.me/2336419074" target="_blank">2336 - 419074</a></div>
@@ -330,10 +317,10 @@
       </div>
     </section>
 
-    <footer class="py-4 bg-primary text-white text-center">
-      <p class="mb-0">Con amor, Lua y Andrés</p>
-    </footer>
-  </div>
+  <footer style="background: #f9e4b7; color: #8B5C2A; text-align: center; padding: 2rem 0; font-size: 1.2rem; border-radius: 0 0 18px 18px; margin: 0;">
+  <p style="margin: 0; text-decoration: underline;">esperamos L&A</p>
+  </footer>
+  </div> 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Icono flotante para controlar la música -->
@@ -359,46 +346,30 @@
     }
   </style>
   <script>
-    // Fade-out al recargar la página
-    window.addEventListener('beforeunload', function (e) {
+    // Fade-out al recargar la página (opcional, mobile friendly)
+    window.addEventListener('beforeunload', function () {
       document.body.classList.add('fadeout');
     });
 
-    // Control de música con botón flotante
+    // Control de música flotante, mobile friendly
     const audio = document.getElementById('musica-fondo');
     const btnMusic = document.getElementById('toggle-music');
     const iconOn = document.getElementById('icon-music-on');
     const iconOff = document.getElementById('icon-music-off');
     let muted = false;
-    // Configura el volumen al 50% y loop
     audio.volume = 0.5;
     audio.loop = true;
     btnMusic.addEventListener('click', function() {
       muted = !muted;
       audio.muted = muted;
-      if (muted) {
-        iconOn.style.display = 'none';
-        iconOff.style.display = 'block';
-      } else {
-        iconOn.style.display = 'block';
-        iconOff.style.display = 'none';
-      }
+      iconOn.style.display = muted ? 'none' : 'block';
+      iconOff.style.display = muted ? 'block' : 'none';
     });
-    // Iniciar sin mute
     audio.muted = false;
     iconOn.style.display = 'block';
     iconOff.style.display = 'none';
-    // Animación suave entre secciones
-    document.querySelectorAll('a.nav-link').forEach(link => {
-      link.addEventListener('click', function(e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-    // Animación de fade entre secciones al hacer scroll
+
+    // Fade entre secciones al hacer scroll
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {

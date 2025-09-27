@@ -1,7 +1,3 @@
-section, .section, .bg-white, .bg-light, .bg-primary, body {
-  background: #ede8d0 !important;
-  color: #6e6e6e !important;
-}
 /* Animaciones fade para secciones */
 .fade-section {
   opacity: 0;
@@ -274,5 +270,144 @@ footer {
   }
   .nombres {
     font-size: 2rem;
+  }
+}
+
+/* === MOBILE FIRST BASE === */
+html, body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9e4b7;
+  color: #6e6e6e;
+  width: 100vw;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+
+.container.text-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+}
+
+.evento-box, .fiesta-box {
+  background: rgba(255,255,255,0.92);
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px 0 rgba(139,92,42,0.10);
+  padding: 1.2rem 1rem 1rem 1rem;
+  margin-bottom: 1rem;
+  border: 1.5px solid #e8c3b9;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+.evento-box h3, .fiesta-box h3 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  color: #8B5C2A;
+  margin-bottom: 0.7rem;
+}
+.evento-box p, .fiesta-box p {
+  font-size: 1rem;
+}
+
+.btn-marron {
+  background-color: #8B5C2A;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  transition: background 0.2s;
+  font-size: 1rem;
+}
+.btn-marron:hover, .btn-marron:focus {
+  background-color: #6e431c;
+  color: #fff;
+}
+
+.galeria-img {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  height: 240px;
+  margin: 0 auto 1rem auto;
+  display: block;
+  border-radius: 1rem;
+  box-shadow: 0 1px 8px #8B5C2A22;
+}
+
+form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+input, textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #e8c3b9;
+  border-radius: 0.7rem;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  box-sizing: border-box;
+}
+button[type="submit"] {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1.2rem 0.5rem;
+  background: #f9e4b7;
+  color: #8B5C2A;
+  font-size: 1rem;
+  border-radius: 0 0 18px 18px;
+  margin-top: 1.5rem;
+}
+
+/* Fade animaciones para secciones */
+.fade-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s, transform 0.7s;
+}
+.show-section {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* === DESKTOP (min-width: 768px) === */
+@media (min-width: 768px) {
+  .section, section {
+    padding: 2.5rem 0;
+  }
+  .evento-box, .fiesta-box {
+    max-width: 100%;
+    min-height: 340px;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+  }
+  .galeria-img {
+    height: 340px;
+  }
+  .container.text-center {
+    max-width: 900px;
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .evento-box, .fiesta-box {
+    max-width: 400px;
+  }
+  .container.text-center {
+    max-width: 1200px;
   }
 }
