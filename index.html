@@ -9,91 +9,334 @@
   <link href="https://fonts.googleapis.com/css2?family=Meow+Script&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .titulo-grande {
+      font-size: 5rem !important;
+      line-height: 1.1;
+    }
+    /* Contenedores personalizados para la sección Evento */
+    .evento-box {
+      background: rgba(255,255,255,0.85);
+      border-radius: 2rem;
+      box-shadow: 0 4px 24px 0 rgba(139,92,42,0.10), 0 1.5px 6px 0 rgba(139,92,42,0.10);
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      margin-bottom: 1.5rem;
+      border: 2px solid #e8c3b9;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .evento-box:hover {
+      box-shadow: 0 8px 32px 0 rgba(139,92,42,0.18), 0 3px 12px 0 rgba(139,92,42,0.18);
+      transform: translateY(-4px) scale(1.02);
+    }
+    .evento-box h3 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #8B5C2A;
+      margin-bottom: 1rem;
+    }
+    .evento-box p {
+      font-size: 1.1rem;
+    }
+    .main-container {
+      max-width: 100vw;
+      width: 100%;
+      margin: 0 auto;
+      box-sizing: border-box;
+      padding-left: 0;
+      padding-right: 0;
+      overflow-x: hidden;
+    }
+    html, body {
+      width: 100vw;
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+      .btn-marron {
+        background-color: #8B5C2A;
+        color: #fff;
+        border: none;
+        border-radius: 999px;
+        padding: 0.5rem 1.5rem;
+        font-weight: 600;
+        transition: background 0.2s;
+      }
+      .btn-marron:hover, .btn-marron:focus {
+        background-color: #6e431c;
+        color: #fff;
+      }
+    /* Tonos de fondo para cada sección */
+    .bg-header {
+      background: linear-gradient(120deg, #e8c3b9 60%, #fffbe9 100%) !important;
+    }
+    .bg-evento {
+      background: linear-gradient(120deg, #fffbe9 60%, #e8c3b9 100%) !important;
+    }
+    .bg-galeria {
+      background: linear-gradient(120deg, #f5e6d6 60%, #e8c3b9 100%) !important;
+    }
+    .bg-rsvp {
+      background: linear-gradient(120deg, #f7f3e9 60%, #e8c3b9 100%) !important;
+    }
+    .bg-contacto {
+      background: linear-gradient(120deg, #e8c3b9 60%, #f7f3e9 100%) !important;
+    }
+    /* Sección La Fiesta */
+    .fiesta-box {
+      background: rgba(255,255,255,0.85);
+      border-radius: 2rem;
+      box-shadow: 0 4px 24px 0 rgba(139,92,42,0.10), 0 1.5px 6px 0 rgba(139,92,42,0.10);
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      margin-bottom: 1.5rem;
+      border: 2px solid #e8c3b9;
+      transition: box-shadow 0.2s, transform 0.2s;
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .fiesta-box h3 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #8B5C2A;
+      margin-bottom: 1rem;
+    }
+    .modal-header {
+      border-bottom: none;
+    }
+    .modal-title {
+      font-family: 'Dancing Script', cursive;
+      color: #8B5C2A;
+      font-size: 2rem;
+    }
+  </style>
 </head>
 <body class="bg-light">
-  <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top" style="backdrop-filter: blur(6px); background: rgba(255,255,255,0.15) !important;">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#header" style="color: #fffbe9;"">L y A</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#evento">Evento</a></li>
-          <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
-          <li class="nav-item"><a class="nav-link" href="#rsvp">RSVP</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-        </ul>
+
+  <div class="main-container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top" style="backdrop-filter: blur(6px); background: rgba(255,255,255,0.15) !important;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#header">L y A</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#evento">Evento</a></li>
+            <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+            <li class="nav-item"><a class="nav-link" href="#rsvp">RSVP</a></li>
+            <li class="nav-item"><a class="nav-link" href="#lafiesta">La Fiesta</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <header id="header" class="vh-100 d-flex flex-column justify-content-center align-items-center bg-primary text-white text-center section" style="background: linear-gradient(120deg, #e8c3b9 60%, #fffbe9 100%);">
-  <h1 class="display-3 fw-bold" style="font-family: 'Dancing Script', cursive;">Lua y Andrés</h1>
-  <p class="lead fs-2">¡Nos Casamos!</p>
-  <p class="fs-4">21 de febrero de 2026</p>
-  <audio id="musica-fondo" src="musica/Tu jardín con enanitos.mp3" autoplay loop style="display:none;"></audio>
-  <div id="contador" class="mt-3 fs-3"></div>
-  </header>
+  <header id="header" class="vh-100 d-flex flex-column justify-content-center align-items-center bg-header text-white text-center section">
+      <h1 class="display-3 fw-bold titulo-grande" style="font-family: 'Dancing Script', cursive;">Lua y Andrés</h1>
+      <p class="lead fs-2">¡Nos Casamos!</p>
+      <p class="fs-4">21 de febrero de 2026</p>
+      <div id="contador" class="mt-3 fs-3"></div>
+      <audio id="musica-fondo" src="musica/musica.mp3" autoplay loop style="display:none;"></audio>
+    </header>
 
-  <section id="evento" class="vh-100 d-flex flex-column justify-content-center align-items-center section bg-white">
+  <section id="evento" class="vh-100 d-flex flex-column justify-content-center align-items-center section bg-evento">
+      <div class="container text-center">
+  <h2 class="mb-4 titulo-grande" style="font-family: 'Dancing Script', cursive;">Detalles del Evento</h2>
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-4 mb-4">
+            <div class="evento-box h-100">
+              <h3>La Ceremonia</h3>
+              <p>Lugar: <span class="fw-semibold">Parroquia Natividad de Maria</span></p>
+              <p>Hora: <span class="fw-semibold">20:00 Hs</span></p>
+              <p>Dirección: <span class="fw-semibold">Villa Huidobro</span></p>
+              <a href="https://www.google.com/maps/search/?api=1&query=Parroquia+Natividad+de+Maria+Villa+Huidobro" target="_blank" class="btn btn-marron mt-2">¿Cómo Llegar?</a>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mb-4">
+            <div class="evento-box h-100">
+              <h3>La Fiesta</h3>
+              <p>Lugar: <span class="fw-semibold">Salon F.C.V.H</span></p>
+              <p>Hora: <span class="fw-semibold">21:00 Hs</span></p>
+              <p>Dirección: <span class="fw-semibold">Villa Huidobro</span></p>
+              <a href="https://maps.app.goo.gl/1pKwjUvBnLujqjuX9" target="_blank" class="btn btn-marron mt-2">¿Cómo Llegar?</a>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mb-4">
+            <div class="evento-box h-100">
+              <h3>Dress Code</h3>
+              <p>Código de vestimenta: <br><span class="fw-semibold">Formal / Cocktail</span></p>
+              <p>Sugerencias: <br> <span class="fw-semibold">Blanco solo para la novia</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <section id="galeria" class="vh-100 d-flex flex-column justify-content-center align-items-center section bg-galeria">
+      <div class="container text-center">
+  <h2 class="mb-4 titulo-grande" style="font-family: 'Dancing Script', cursive;">Galería de Fotos</h2>
+        <div class="row justify-content-center">
+          <div class="col-10 col-md-4 mb-3"><img src="img/foto1.jpeg" class="img-fluid rounded shadow" alt="Foto 1"></div>
+          <div class="col-10 col-md-4 mb-3"><img src="img/foto2.jpeg" class="img-fluid rounded shadow" alt="Foto 2"></div>
+          <div class="col-10 col-md-4 mb-3"><img src="img/foto3.jpeg" class="img-fluid rounded shadow" alt="Foto 3"></div>
+        </div>
+      </div>
+    </section>
+
+  <section id="rsvp" class="vh-100 d-flex flex-column justify-content-center align-items-center section bg-rsvp">
+      <div class="container">
+        <h2 class="mb-4 titulo-grande text-center" style="font-family: 'Dancing Script', cursive;">Confirmar Asistencia</h2>
+        <div class="row justify-content-center align-items-stretch">
+          <div class="col-12 col-md-6 mb-4 d-flex flex-column align-items-center">
+            <div class="evento-box w-100" style="max-width: 400px;">
+              <form id="form-rsvp" class="mx-auto w-100">
+                <div class="mb-3">
+                  <input type="text" name="nombre" class="form-control" placeholder="Tu nombre" required>
+                </div>
+                <div class="mb-3">
+                  <input type="number" name="invitados" class="form-control" placeholder="Cantidad de invitados" min="1" required>
+                </div>
+                <div class="mb-3">
+                  <input type="email" name="email" class="form-control" placeholder="Correo electrónico" required>
+                </div>
+                <div class="mb-3">
+                  <textarea name="mensaje" class="form-control" placeholder="Mensaje opcional"></textarea>
+                </div>
+                <button type="submit" class="btn btn-marron w-100">Confirmar</button>
+              </form>
+              <div id="rsvp-mensaje" class="mt-3"></div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 mb-4 d-flex flex-column align-items-center justify-content-center">
+            <div class="evento-box w-100" style="max-width: 400px;">
+              <h3 class="mb-3 text-center" style="font-family: 'Dancing Script', cursive; color: #8B5C2A; font-size: 2.5rem;">Tarjeta</h3>
+              <ul class="list-unstyled mb-3">
+                <li><strong>Adulto:</strong> $75.000</li>
+                <li><strong>Menor (4 a 12 años):</strong> $37.500</li>
+              </ul>
+              <p class="mb-1"><strong>Fecha límite de pago:</strong> 20 Octubre, 2025</p>
+              <p class="mb-1"><strong>Medio de pago:</strong> Transferencia bancaria</p>
+              <p class="mb-1"><strong>Alias:</strong> BodaLuayAndres</p>
+              <p class="mb-1"><strong>Titular:</strong> Andrés Eula</p>
+              <p class="mt-3 mb-0 text-muted" style="font-size: 0.95rem;">Por favor, indicar nombre y cantidad de invitados en la transferencia.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- Sección La Fiesta -->
+  <section id="lafiesta" class="vh-100 d-flex flex-column justify-content-center align-items-center section bg-evento">
     <div class="container text-center">
-      <h2 class="mb-4">Detalles del Evento</h2>
-      <p class="fs-5">Lugar: <span class="fw-semibold">[Nombre del salón o dirección]</span></p>
-      <p class="fs-5">Hora: <span class="fw-semibold">[Hora de inicio]</span></p>
-      <p class="fs-5">Dress code: <span class="fw-semibold">[Opcional]</span></p>
-    </div>
-  </section>
-
-  <section id="galeria" class="vh-100 d-flex flex-column justify-content-center align-items-center section bg-light">
-    <div class="container text-center">
-      <h2 class="mb-4">Galería de Fotos</h2>
+      <h2 class="mb-4 titulo-grande" style="font-family: 'Dancing Script', cursive;">La Fiesta</h2>
       <div class="row justify-content-center">
-        <div class="col-10 col-md-4 mb-3"><img src="img/ejemplo1.jpg" class="img-fluid rounded shadow" alt="Foto 1"></div>
-        <div class="col-10 col-md-4 mb-3"><img src="img/ejemplo2.jpg" class="img-fluid rounded shadow" alt="Foto 2"></div>
-        <div class="col-10 col-md-4 mb-3"><img src="img/ejemplo3.jpg" class="img-fluid rounded shadow" alt="Foto 3"></div>
+        <!-- Columna 1: Sugerir música -->
+        <div class="col-12 col-md-4 mb-4">
+          <div class="fiesta-box h-100">
+            <h3>¿Qué música no debe faltar?</h3>
+            <button type="button" class="btn btn-marron mt-2" data-bs-toggle="modal" data-bs-target="#modalSugerirTema">Sugerir Tema</button>
+          </div>
+        </div>
+        <!-- Columna 2: Alojamientos -->
+        <div class="col-12 col-md-4 mb-4">
+          <div class="fiesta-box h-100">
+            <h3>Alojamientos</h3>
+            <button type="button" class="btn btn-marron mt-2" data-bs-toggle="modal" data-bs-target="#modalAlojamientos">Ver Alojamientos</button>
+          </div>
+        </div>
+        <!-- Columna 3: Instagram -->
+        <div class="col-12 col-md-4 mb-4">
+          <div class="fiesta-box h-100">
+            <h3>@BodaLuayAndres</h3>
+            <a href="https://instagram.com/BodaLuayAndres" target="_blank" class="btn btn-marron mt-2" style="font-size:1.2rem;">Compartir Fotos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Sugerir Tema -->
+    <div class="modal fade" id="modalSugerirTema" tabindex="-1" aria-labelledby="modalSugerirTemaLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalSugerirTemaLabel">Sugerir Tema</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <form id="form-sugerir-tema">
+              <div class="mb-3">
+                <label for="nombre-sugerente" class="form-label">Tu nombre</label>
+                <input type="text" class="form-control" id="nombre-sugerente" name="nombre" required>
+              </div>
+              <div class="mb-3">
+                <label for="youtube-link" class="form-label">Enlace a YouTube</label>
+                <input type="url" class="form-control" id="youtube-link" name="youtube" placeholder="https://youtube.com/..." required>
+              </div>
+              <button type="submit" class="btn btn-marron w-100">Enviar sugerencia</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Alojamientos -->
+    <div class="modal fade" id="modalAlojamientos" tabindex="-1" aria-labelledby="modalAlojamientosLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalAlojamientosLabel">Alojamientos en Villa Huidobro</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body text-start">
+            <ul class="list-unstyled">
+              <li><a href="https://maps.app.goo.gl/JMyApkTHfbgjrHXb9" target="_blank">Hotel El Nono/a></li>
+              <li><a href="https://maps.app.goo.gl/nnWWkQ7nXGH8UtCK9" target="_blank">Hospedaje El Petiso/a></li>
+              <li><a href="https://maps.app.goo.gl/pdZt854fFf3L4L9j8" target="_blank">Hospedaje Vivi</a></li>
+              <li><a href="https://maps.app.goo.gl/pdZt854fFf3L4L9j8" target="_blank">Hotel Goggiano/a></li>
+              <li><a href="https://maps.app.goo.gl/ekJ5oEDqr2iBwGTM9" target="_blank">Casa por Dia 2302595395</a></li>
+            </ul>
+            <p class="mt-3 mb-0 text-muted" style="font-size: 0.95rem;">Consulta disponibilidad y reserva directamente con cada alojamiento.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="rsvp" class="vh-100 d-flex flex-column justify-content-center align-items-center section bg-white">
-    <div class="container text-center">
-      <h2 class="mb-4">Confirmar Asistencia</h2>
-      <form id="form-rsvp" class="mx-auto" style="max-width: 400px;">
-        <div class="mb-3">
-          <input type="text" name="nombre" class="form-control" placeholder="Tu nombre" required>
+  <section id="contacto" class="vh-100 d-flex flex-column justify-content-center align-items-center section bg-contacto">
+      <div class="container text-center">
+        <h2 class="mb-4">Contacto</h2>
+        <div class="evento-box mx-auto mb-4" style="max-width: 400px;">
+          <form>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Tu nombre" required>
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" placeholder="Mensaje" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-marron w-100">Enviar mensaje</button>
+          </form>
         </div>
-        <div class="mb-3">
-          <input type="number" name="invitados" class="form-control" placeholder="Cantidad de invitados" min="1" required>
-        </div>
-        <div class="mb-3">
-          <input type="email" name="email" class="form-control" placeholder="Correo electrónico" required>
-        </div>
-        <div class="mb-3">
-          <textarea name="mensaje" class="form-control" placeholder="Mensaje opcional"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Confirmar</button>
-      </form>
-      <div id="rsvp-mensaje" class="mt-3"></div>
-    </div>
-  </section>
+  <div class="mb-2"><strong>Lua</strong> <a href="https://wa.me/2336419074" target="_blank">2336 - 419074</a></div>
+  <div><strong>Andrés</strong> <a href="https://wa.me/2302566844" target="_blank"> 2302 - 566844</a></div>
+      </div>
+    </section>
 
-  <section id="contacto" class="vh-100 d-flex flex-column justify-content-center align-items-center section bg-light">
-    <div class="container text-center">
-      <h2 class="mb-4">Contacto</h2>
-      <p class="fs-5">Si tienes dudas, escríbenos a <a href="mailto:correo@ejemplo.com">correo@ejemplo.com</a></p>
-    </div>
-  </section>
-
-  <footer class="py-4 bg-primary text-white text-center">
-    <p class="mb-0">Con amor, Andrés & Nombre de la pareja</p>
-  </footer>
+    <footer class="py-4 bg-primary text-white text-center">
+      <p class="mb-0">Con amor, Lua y Andrés</p>
+    </footer>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Icono flotante para controlar la música -->
   <button id="toggle-music" aria-label="Música" style="position:fixed;bottom:32px;right:32px;z-index:9999;background:#77DD77;border:none;border-radius:50%;width:56px;height:56px;box-shadow:0 2px 8px #0003;display:flex;align-items:center;justify-content:center;cursor:pointer;">
-    <svg id="icon-music-on" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fff" viewBox="0 0 16 16"><path d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2S9 11.895 9 13zm6-2.5V3a1 1 0 0 0-1.447-.894l-7 3.5A1 1 0 0 0 6 7v6.5a.5.5 0 0 0 .724.447l7-3.5A1 1 0 0 0 15 10.5z"/></svg>
-    <svg id="icon-music-off" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fff" viewBox="0 0 16 16" style="display:none;"><path d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2S9 11.895 9 13zm6-2.5V3a1 1 0 0 0-1.447-.894l-7 3.5A1 1 0 0 0 6 7v6.5a.5.5 0 0 0 .724.447l7-3.5A1 1 0 0 0 15 10.5z"/><line x1="2" y1="2" x2="14" y2="14" stroke="#fff" stroke-width="2"/></svg>
+    <!-- Icono parlante encendido -->
+    <svg id="icon-music-on" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fff" viewBox="0 0 24 24">
+      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 3.04-1.64 5.64-4.5 6.32v2.02c4.01-.91 7-4.49 7-8.34s-2.99-7.43-7-8.34v2.02c2.86.68 4.5 3.28 4.5 6.32z"/>
+    </svg>
+    <!-- Icono parlante apagado (mute) -->
+    <svg id="icon-music-off" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fff" viewBox="0 0 24 24" style="display:none;">
+      <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM19 12c0 3.04-1.64 5.64-4.5 6.32v2.02c4.01-.91 7-4.49 7-8.34 0-1.13-.19-2.22-.54-3.23l-1.46 1.46c.25.56.4 1.18.4 1.77zM3 9v6h4l5 5V4L7 9H3zm16.19 1.19l-14.08 14.08 1.41 1.41 14.08-14.08-1.41-1.41z"/>
+      <line x1="2" y1="2" x2="22" y2="22" stroke="#fff" stroke-width="2"/>
+    </svg>
   </button>
   <script src="script.js"></script>
   <style>
