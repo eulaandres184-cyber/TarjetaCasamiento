@@ -191,7 +191,7 @@
         <div class="row justify-content-center align-items-stretch">
           <div class="col-12 col-md-6 mb-4 d-flex flex-column align-items-center">
               <div class="evento-box">
-              <form id="form-rsvp" class="mx-auto w-100" action="https://getform.io/f/ayvemxnb" method="POST" accept-charset="UTF-8">
+              <form id="form-rsvp" class="mx-auto w-100" method="POST" accept-charset="UTF-8" autocomplete="off">
                 <input type="hidden" name="_gotcha" style="display:none !important">
                 <div class="mb-3">
                   <input type="text" name="name" placeholder="Tu nombre" required>
@@ -332,7 +332,7 @@
       <div class="container text-center">
         <h2 class="titulo-grande">Contacto</h2>
         <div class="evento-box mx-auto mb-4" style="max-width: 400px;">
-          <form action="https://getform.io/f/ayvemxnb" method="POST" accept-charset="UTF-8">
+          <form method="POST" accept-charset="UTF-8" autocomplete="off">
             <input type="hidden" name="_gotcha" style="display:none !important">
             <input type="text" placeholder="Tu nombre" required>
             <textarea placeholder="Mensaje" rows="3" required></textarea>
@@ -362,6 +362,8 @@
       <line x1="2" y1="2" x2="22" y2="22" stroke="#fff" stroke-width="2"/>
     </svg>
   </button>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
   <script src="script.js"></script>
   <!-- Modal de éxito para formularios -->
   <div class="modal fade" id="modalExitoForm" tabindex="-1" aria-labelledby="modalExitoFormLabel" aria-hidden="true">
@@ -377,19 +379,69 @@
     </div>
   </div>
   <script>
-    // Mostrar modal de éxito tras el envío exitoso de los formularios Getform
+    // Configuración de Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyALvl8xhRRE4OMSXv7kCNZREzfuqyJfla0",
+      authDomain: "tarjeta-casamiento-fc0da.firebaseapp.com",
+      projectId: "tarjeta-casamiento-fc0da",
+      storageBucket: "tarjeta-casamiento-fc0da.firebasestorage.app",
+      messagingSenderId: "1079233122357",
+      appId: "1:1079233122357:web:02ae5b755c51919d0b217c",
+      measurementId: "G-KYF33Q8RJT"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Función para mostrar el modal de éxito
+    function showSuccessModal() {
+      var modal = new bootstrap.Modal(document.getElementById('modalExitoForm'));
+      modal.show();
+    }
+
+    // Manejo de formularios RSVP y Contacto
     document.addEventListener('DOMContentLoaded', function() {
-      function showSuccessModal() {
-        var modal = new bootstrap.Modal(document.getElementById('modalExitoForm'));
-        modal.show();
-      }
-      function addSuccessModal(form) {
-        form.addEventListener('submit', function(e) {
-          setTimeout(showSuccessModal, 100);
+      // RSVP
+      var rsvpForm = document.getElementById('form-rsvp');
+      if (rsvpForm) {
+        rsvpForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const data = {
+            nombre: rsvpForm.querySelector('[name="name"], [name="nombre"]').value,
+            invitados: rsvpForm.querySelector('[name="invitados"]').value,
+            email: rsvpForm.querySelector('[name="email"]').value,
+            mensaje: rsvpForm.querySelector('[name="mensaje"]').value,
+            fecha: new Date().toISOString()
+          };
+          db.collection('rsvp').add(data)
+            .then(() => {
+              rsvpForm.reset();
+              showSuccessModal();
+            })
+            .catch(() => {
+              alert('Error al enviar. Intenta nuevamente.');
+            });
         });
       }
-      var forms = document.querySelectorAll('form[action="https://getform.io/f/ayvemxnb"]');
-      forms.forEach(addSuccessModal);
+      // Contacto
+      var contactoForm = document.querySelector('section#contacto form');
+      if (contactoForm) {
+        contactoForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const data = {
+            nombre: contactoForm.querySelector('input[type="text"]').value,
+            mensaje: contactoForm.querySelector('textarea').value,
+            fecha: new Date().toISOString()
+          };
+          db.collection('contacto').add(data)
+            .then(() => {
+              contactoForm.reset();
+              showSuccessModal();
+            })
+            .catch(() => {
+              alert('Error al enviar. Intenta nuevamente.');
+            });
+        });
+      }
     });
   </script>
   <style>
