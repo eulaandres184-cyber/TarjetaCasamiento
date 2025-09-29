@@ -19,16 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Flechas scroll-down
   document.querySelectorAll('.scroll-down-indicator').forEach(indicator => {
     indicator.addEventListener('click', function(e) {
-      e.preventDefault();
       let section = this.closest('.section');
       if (section) scrollToNextSection(section);
-    });
-    indicator.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        let section = this.closest('.section');
-        if (section) scrollToNextSection(section);
-      }
     });
   });
   // Enlaces de navegación
@@ -157,16 +149,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }, { threshold: 0.3 });
-    sections.forEach(section => {
-      section.classList.add('fade-section');
-      observer.observe(section);
-    });
+    sections.forEach(section => observer.observe(section));
+    sections.forEach(section => section.classList.remove('fade-section'));
   }
 });
 
 // Contador regresivo con círculos
 function actualizarContador() {
-  const fechaBoda = new Date('2026-02-21T00:00:00');
+  const fechaBoda = new Date('2026-02-21T20:00:00');
   const ahora = new Date();
   const diff = fechaBoda - ahora;
   if (diff <= 0) {
