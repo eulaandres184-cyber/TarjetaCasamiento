@@ -34,3 +34,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+// Animación de ingreso para imágenes de galería
+window.addEventListener('DOMContentLoaded', function() {
+  const galeriaImgs = document.querySelectorAll('.galeria-img');
+  if (galeriaImgs.length > 0 && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    galeriaImgs.forEach(img => observer.observe(img));
+  } else {
+    // fallback: mostrar todas si no hay soporte
+    galeriaImgs.forEach(img => img.classList.add('visible'));
+  }
+});

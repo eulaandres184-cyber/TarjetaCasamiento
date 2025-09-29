@@ -1,3 +1,47 @@
+/* Enlace agendar recordatorio Google Calendar */
+.agendar-recordatorio {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+.agendar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #fffbe9;
+  color: #e8c3b944;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  border-radius: 999px;
+  padding: 0.5rem 1.3rem 0.5rem 0.8rem;
+  text-decoration: none;
+  box-shadow: 0 2px 8px #e8c3b944;
+  border: 1.5px solid #e8c3b9;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.agendar-link:hover {
+  background: #e8c3b9;
+  color: #fffbe9;
+  box-shadow: 0 4px 16px #e8c3b988;
+}
+.agendar-link svg {
+  flex-shrink: 0;
+}
+/* Indicador de scroll hacia abajo en header */
+.scroll-down-indicator {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 10;
+  animation: bounceDown 1.5s infinite;
+  cursor: pointer;
+}
+@keyframes bounceDown {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(16px); }
+}
 /* Animaciones fade para secciones */
 .fade-section {
   opacity: 0;
@@ -344,6 +388,17 @@ html, body {
   box-shadow: 0 1px 8px #8B5C2A22;
 }
 
+/* Animación de ingreso para imágenes de galería (más lenta y fade-in) */
+.galeria-img {
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: opacity 1.6s cubic-bezier(.7,0,.3,1), transform 1.6s cubic-bezier(.7,0,.3,1);
+}
+.galeria-img.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 form {
   width: 100%;
   max-width: 400px;
@@ -410,4 +465,210 @@ footer {
   .container.text-center {
     max-width: 1200px;
   }
+}
+
+/* === Estilos trasladados desde index.html === */
+.titulo-grande {
+  font-size: 4rem !important;
+  line-height: 1.1;
+  font-family: dancing script, cursive;
+}
+.evento-box {
+  background: rgba(255,255,255,0.85);
+  border-radius: 2rem;
+  box-shadow: 0 4px 24px 0 rgba(139,92,42,0.10), 0 1.5px 6px 0 rgba(139,92,42,0.10);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid #e8c3b9;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.evento-box:hover {
+  box-shadow: 0 8px 32px 0 rgba(139,92,42,0.18), 0 3px 12px 0 rgba(139,92,42,0.18);
+  transform: translateY(-4px) scale(1.02);
+}
+.evento-box h3 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: #8B5C2A;
+  margin-bottom: 1rem;
+}
+.evento-box p {
+  font-size: 1.1rem;
+}
+.main-container {
+  max-width: 100vw;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-left: 0;
+  padding-right: 0;
+  overflow-x: hidden;
+}
+html, body {
+  width: 100vw;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+.btn-marron {
+  background-color: #8B5C2A;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.btn-marron:hover, .btn-marron:focus {
+  background-color: #6e431c;
+  color: #fff;
+}
+.bg-header {
+  background: linear-gradient(120deg, #e8c3b9 60%, #fffbe9 100%) !important;
+}
+.bg-evento {
+  background: linear-gradient(120deg, #fffbe9 60%, #e8c3b9 100%) !important;
+}
+.bg-galeria {
+  background: linear-gradient(120deg, #f5e6d6 60%, #e8c3b9 100%) !important;
+}
+.bg-rsvp {
+  background: linear-gradient(120deg, #f7f3e9 60%, #e8c3b9 100%) !important;
+}
+.bg-contacto {
+  background: linear-gradient(120deg, #e8c3b9 60%, #f7f3e9 100%) !important;
+}
+.fiesta-box {
+  background: rgba(255,255,255,0.85);
+  border-radius: 2rem;
+  box-shadow: 0 4px 24px 0 rgba(139,92,42,0.10), 0 1.5px 6px 0 rgba(139,92,42,0.10);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid #e8c3b9;
+  transition: box-shadow 0.2s, transform 0.2s;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.fiesta-box h3 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: #8B5C2A;
+  margin-bottom: 1rem;
+}
+.modal-header {
+  border-bottom: none;
+}
+.modal-title {
+  font-family: 'Dancing Script', cursive;
+  color: #2c2b2a;
+  font-size: 2rem;
+}
+/* Contador regresivo */
+.contador-circulos {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .contador-circulo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .contador-numero {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background-color:#fff;
+      color: #555;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      box-shadow: 0 2px 12px 0 rgba(99, 96, 93, 0.1);
+      margin-bottom: 0.5rem;
+      border: 2px solid #e8c3b9;
+    }
+    .contador-label {
+      font-size: 1rem;
+      color: #e8c3b944;
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin-top: 0;
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+    @media (max-width: 600px) {
+      .contador-numero {
+        width: 48px;
+        height: 48px;
+        font-size: 1.1rem;
+      }
+      .contador-circulos {
+        gap: 0.7rem;
+      }
+      .contador-label {
+        font-size: 0.85rem;
+      }
+    }
+/* Cambios de esquema de color */
+body, html, section, .section, .main-container {
+  background: #fff !important;
+  color: #333 !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, .titulo-grande, .contador-label, .lead, .fs-2, .fs-3, .fs-4, .modal-title, .evento-box h3, .fiesta-box h3 {
+  color: #333 !important;
+}
+
+.btn-marron, .agendar-link, .btn, .popup-btn {
+  background: linear-gradient(90deg, #b6f5c6 0%, #77DD77 100%) !important;
+  color: #333 !important;
+  border: none !important;
+  border-radius: 999px !important;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-marron:hover, .agendar-link:hover, .btn:hover, .popup-btn:hover {
+  background: linear-gradient(90deg, #77DD77 0%, #b6f5c6 100%) !important;
+  color: #222 !important;
+}
+
+/* Ajuste de bordes y sombras para botones verdes claros */
+.btn-marron, .agendar-link, .btn, .popup-btn {
+  box-shadow: 0 2px 8px #b6f5c644;
+  border: 1.5px solid #77DD77 !important;
+}
+
+/* Ajuste de fondo de cajas */
+.evento-box, .fiesta-box, .modal-content, .popup-contenido {
+  background: #fff !important;
+  border: 2px solid #b6f5c6 !important;
+  box-shadow: 0 4px 24px 0 #b6f5c622, 0 1.5px 6px 0 #b6f5c622 !important;
+}
+
+.bg-header, .bg-evento, .bg-galeria, .bg-rsvp, .bg-contacto {
+  background: #fff !important;
+}
+
+/* Quitar bordes de colores de contenedores y formularios */
+.evento-box,
+.fiesta-box,
+.main-container,
+.modal-content,
+.popup-contenido,
+footer {
+  border: none !important;
+}
+
+form,
+form input,
+form textarea,
+form select,
+form .form-control {
+  border: none !important;
+  box-shadow: none !important;
 }
