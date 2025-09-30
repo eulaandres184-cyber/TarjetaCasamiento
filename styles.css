@@ -402,15 +402,7 @@ html, body {
   padding: 0.5rem 1.2rem;
   font-size: 1.15rem;
 }
-.fiesta-box .btn-marron {
-  width: 80%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 1.35rem;
-  padding: 1.1rem 2.2rem;
-  border-radius: 14px !important;
-}
+
 .btn-marron:hover, .btn-marron:focus {
   background: #C3CDBF !important;
   color: #fff !important;
@@ -487,7 +479,7 @@ button[type="submit"] {
 
 /* === Estilos trasladados desde index.html === */
 .titulo-grande {
-  font-size: 4rem !important;
+  font-size: 3rem !important;
   line-height: 1.1;
   font-family: imperial script, cursive;
   position: relative;
