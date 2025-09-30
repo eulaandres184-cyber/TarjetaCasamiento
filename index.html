@@ -15,7 +15,7 @@
 <body class="bg-light">
 
   <div class="main-container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-solid fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand" href="#header">L y A</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,7 +44,7 @@
           <span class="agendar-recordatorio">Agendar Recordatorio</span>
         </a>
       </div>
-      <audio id="musica-fondo" src="musica/Tu jardín con enanitos.mp3" autoplay loop style="display:none;"></audio>
+      <audio id="musica-fondo" autoplay loop style="display:none;"></audio>
       <!-- Indicador hacia abajo -->
   <div class="scroll-down-indicator" aria-label="Bajar a la siguiente sección" style="margin-top:1.5rem;">
         <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -98,11 +98,7 @@
           <div class="col-10 col-md-4 mb-3"><img src="img/foto5.JPEG" class="galeria-img" alt="Foto 3"></div>
         </div>
       </div>
-  <div class="scroll-down-indicator" aria-label="Bajar a la siguiente sección" style="margin-top:1.5rem;">
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <polyline points="10,15 18,23 26,15" stroke="#999" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
+
     </section>
 
   <section id="rsvp" class="section bg-rsvp">
@@ -159,6 +155,17 @@
           <div class="fiesta-box h-100">
             <h3>¿Qué música no debe faltar?</h3>
             <button type="button" class="btn btn-marron" data-bs-toggle="modal" data-bs-target="#modalSugerirTema">Sugerir Tema</button>
+            <!-- Mini reproductor de música -->
+            <div class="mini-player mt-3">
+              <div class="mini-player-controls">
+                <button id="prev-track" class="mini-player-btn" title="Anterior" type="button">&#9664;</button>
+                <button id="next-track" class="mini-player-btn" title="Siguiente" type="button">&#9654;</button>
+              </div>
+              <audio id="mini-audio" controls preload="none">
+                Tu navegador no soporta audio HTML5.
+              </audio>
+              
+            </div>
           </div>
         </div>
         <!-- Columna 2: Alojamientos -->

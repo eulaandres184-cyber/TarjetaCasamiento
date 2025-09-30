@@ -147,12 +147,16 @@ section, .section {
   overflow: hidden;
 }
 
+/* Unificado: container.text-center */
 .container.text-center {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
+  width: 100%;
+  padding: 0;
+  max-width: 1200px;
 }
 .invitados ul {
   list-style: none;
@@ -231,15 +235,10 @@ section, .section {
   flex-wrap: wrap;
   justify-content: center;
 }
+  /* Corrige bloque inválido: solo la regla de gap se mantiene */
   .fiesta-bloques {
     gap: 0.5rem !important;
   }
-  border: 1px solid #C3CDBF;
-  border-radius: 10px;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: none !important;
-}
 .fiesta-bloque h3 {
   color: #C3CDBF;
   font-family: 'Great Vibes', cursive;
@@ -331,12 +330,13 @@ footer p {
 }
 
 /* === MOBILE FIRST BASE === */
+/* Unificado: html y body */
 html, body {
   font-family: 'Montserrat', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #ffffff;
-  color: #6e6e6e;
+  background: #E5E0D8 !important;
+  color: #333 !important;
   width: 100vw;
   max-width: 100vw;
   overflow-x: hidden;
@@ -360,43 +360,63 @@ html, body {
   padding: 0;
 }
 
+/* Unificado: evento-box y fiesta-box */
 .evento-box, .fiesta-box {
-  background: rgba(255,255,255,0.92);
-  border-radius: 1.2rem;
+  background: #fff !important;
+  border-radius: 2rem;
   box-shadow: none !important;
-  padding: 1.2rem 1rem 1rem 1rem;
-  margin-bottom: 1rem;
-  border: 1.5px solid #e8c3b9;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border: none !important;
   width: 100%;
   max-width: 400px;
   box-sizing: border-box;
-  
 }
+.fiesta-box h3{
+  font-family: montserrat;
+  font-weight: 400;
+  font-size: 2rem;
+}
+/* Unificado: títulos de cajas */
 .evento-box h3, .fiesta-box h3 {
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.5rem;
-  color: #8B5C2A;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  color: #333 !important;
   margin-bottom: 0.7rem;
 }
 .evento-box p, .fiesta-box p {
   font-size: 1rem;
 }
 
+/* Botones grandes y anchos en la sección La Fiesta */
+/* Unificado: Botón marrón principal y variante grande para La Fiesta */
 .btn-marron {
-  background-color: #8B5C2A;
-  color: #fff;
-  border: none;
-  border-radius: 999px;
-  padding: 0.5rem 1.2rem;
+  background: #C3CDBF !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 999px !important;
   font-weight: 600;
-  transition: background 0.2s;
-  font-size: 1rem;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px #b6f5c644;
+  border: 1.5px solid #C3CDBF !important;
+  padding: 0.5rem 1.2rem;
+  font-size: 1.15rem;
+}
+.fiesta-box .btn-marron {
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.35rem;
+  padding: 1.1rem 2.2rem;
+  border-radius: 14px !important;
 }
 .btn-marron:hover, .btn-marron:focus {
-  background-color: #6e431c;
-  color: #fff;
+  background: #C3CDBF !important;
+  color: #fff !important;
 }
 
+/* Unificado: galeria-img */
 .galeria-img {
   width: 100%;
   max-width: 320px;
@@ -407,10 +427,6 @@ html, body {
   display: block;
   border-radius: 1rem;
   box-shadow: none !important;
-}
-
-/* Animación de ingreso para imágenes de galería (más lenta y fade-in) */
-.galeria-img {
   opacity: 0;
   transform: translateX(-80px);
   transition: opacity 1.6s cubic-bezier(.7,0,.3,1), transform 1.6s cubic-bezier(.7,0,.3,1);
@@ -499,8 +515,9 @@ button[type="submit"] {
 .evento-box p {
   font-size: 1.1rem;
 }
+/* Unificado: main-container */
 .main-container {
-  background: #FBD794;
+  background: #E5E0D8 !important;
   max-width: 100vw;
   width: 100%;
   margin: 0 auto;
@@ -514,19 +531,7 @@ html, body {
   max-width: 100vw;
   overflow-x: hidden;
 }
-.btn-marron {
-  background-color: #8B5C2A;
-  color: #fff;
-  border: none;
-  border-radius: 999px;
-  padding: 0.5rem 1.5rem;
-  font-weight: 600;
-  transition: background 0.2s;
-}
-.btn-marron:hover, .btn-marron:focus {
-  background-color: #6e431c;
-  color: #fff;
-}
+/* Eliminado: duplicado de .btn-marron, ya unificado arriba */
 .bg-header {
   background: linear-gradient(120deg, #E5E0D8 0%, #D6CFC0 100%) !important;
 }
@@ -562,11 +567,19 @@ html, body {
   color: #8B5C2A;
   margin-bottom: 1rem;
 }
+
+/* Centrar modals en pantalla */
+.modal-dialog {
+  display: flex !important;
+  align-items: center !important;
+  min-height: 100vh !important;
+  justify-content: center !important;
+}
 .modal-header {
   border-bottom: none;
 }
 .modal-title {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Montserrat', Arial, sans-serif;
   color: #2c2b2a;
   font-size: 2rem;
 }
@@ -651,6 +664,7 @@ h1, h2, h3, h4, h5, h6, p, .titulo-grande, .contador-label, .lead, .fs-2, .fs-3,
   background: #fff !important;
 }
 
+/* Unificado: fondos de secciones */
 .bg-header, .bg-evento, .bg-galeria, .bg-rsvp, .bg-contacto {
   background: #fff !important;
 }
@@ -697,4 +711,61 @@ input[type="number"]:focus,
 textarea:focus {
   border: 2px solid #000 !important;
   outline: none !important;
+}
+
+/* Mini reproductor de música estilo pastel y tipografía */
+.mini-player {
+  background: #eafbe7;
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 8px #0001;
+  font-family: 'Montserrat', 'Dancing Script', Arial, sans-serif;
+}
+.mini-player-title {
+  color: #77DD77;
+  font-weight: 700;
+  font-size: 1.1rem;
+  font-family: 'Dancing Script', 'Montserrat', cursive;
+}
+.mini-player audio {
+  accent-color: #8FBC8F;
+  width: 180px;
+  height: 32px;
+  background: transparent;
+}
+
+/* Mini-player controls and track title */
+.mini-player-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  justify-content: center;
+}
+.mini-player-btn {
+  background: #8FBC8F;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px #0001;
+  cursor: pointer;
+  transition: background 0.2s;
+
+}
+.mini-player-btn:hover {
+  background: #8FBC8F;
+}
+.mini-player-track-title {
+  color: #8FBC8F;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
 }

@@ -1,3 +1,56 @@
+// Mini-player track controls
+document.addEventListener('DOMContentLoaded', function() {
+  const tracks = [
+    {
+      src: 'musica/Tu jardín con enanitos.mp3',
+      
+    },
+    {
+      src: 'musica/LexMorris  HALUNA - Summertime Sadness.mp3',
+      
+    }
+  ];
+  let currentTrack = 0;
+  const audio = document.getElementById('mini-audio');
+  const titleDiv = document.getElementById('track-title');
+  const prevBtn = document.getElementById('prev-track');
+  const nextBtn = document.getElementById('next-track');
+  const randomBtn = document.getElementById('random-track');
+  function setTrack(idx) {
+    if (!audio) return;
+    currentTrack = idx;
+    audio.pause();
+    audio.src = tracks[currentTrack].src;
+    audio.load();
+    if (titleDiv) titleDiv.textContent = tracks[currentTrack].title;
+    audio.play();
+  }
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function() {
+      setTrack((currentTrack - 1 + tracks.length) % tracks.length);
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function() {
+      setTrack((currentTrack + 1) % tracks.length);
+    });
+  }
+  if (randomBtn) {
+    randomBtn.addEventListener('click', function() {
+      let idx;
+      do {
+        idx = Math.floor(Math.random() * tracks.length);
+      } while (idx === currentTrack && tracks.length > 1);
+      setTrack(idx);
+    });
+  }
+  // Inicializar título y fuente
+  if (audio && tracks.length > 0) {
+    audio.src = tracks[0].src;
+    audio.load();
+    if (titleDiv) titleDiv.textContent = tracks[0].title;
+  }
+});
 // Scroll suave al hacer clic en el indicador de flecha y en los enlaces de navegación, dejando la sección alineada arriba (considerando navbar fija)
 document.addEventListener('DOMContentLoaded', function() {
   function scrollToSection(section) {
@@ -117,6 +170,7 @@ window.addEventListener('beforeunload', function () {
 // Control de música flotante, mobile friendly
 document.addEventListener('DOMContentLoaded', function() {
   const audio = document.getElementById('musica-fondo');
+  const miniAudio = document.getElementById('mini-audio');
   const btnMusic = document.getElementById('toggle-music');
   const iconOn = document.getElementById('icon-music-on');
   const iconOff = document.getElementById('icon-music-off');
@@ -124,13 +178,40 @@ document.addEventListener('DOMContentLoaded', function() {
     let muted = false;
     audio.volume = 0.5;
     audio.loop = true;
-    btnMusic.addEventListener('click', function() {
-      muted = !muted;
-      audio.muted = muted;
-      iconOn.style.display = muted ? 'none' : 'block';
-      iconOff.style.display = muted ? 'block' : 'none';
-    });
+    if (miniAudio) {
+      miniAudio.volume = 0.5;
+      miniAudio.loop = true;
+      // Sincronizar mute
+      btnMusic.addEventListener('click', function() {
+        muted = !muted;
+        audio.muted = muted;
+        miniAudio.muted = muted;
+        iconOn.style.display = muted ? 'none' : 'block';
+        iconOff.style.display = muted ? 'block' : 'none';
+      });
+      // Sincronizar play/pause
+      miniAudio.addEventListener('play', function() {
+        if (audio.paused) audio.play();
+      });
+      miniAudio.addEventListener('pause', function() {
+        if (!audio.paused) audio.pause();
+      });
+      audio.addEventListener('play', function() {
+        if (miniAudio.paused) miniAudio.play();
+      });
+      audio.addEventListener('pause', function() {
+        if (!miniAudio.paused) miniAudio.pause();
+      });
+    } else {
+      btnMusic.addEventListener('click', function() {
+        muted = !muted;
+        audio.muted = muted;
+        iconOn.style.display = muted ? 'none' : 'block';
+        iconOff.style.display = muted ? 'block' : 'none';
+      });
+    }
     audio.muted = false;
+    if (miniAudio) miniAudio.muted = false;
     iconOn.style.display = 'block';
     iconOff.style.display = 'none';
   }
