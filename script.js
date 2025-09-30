@@ -245,3 +245,16 @@ window.addEventListener('DOMContentLoaded', function() {
     galeriaImgs.forEach(img => img.classList.add('visible'));
   }
 });
+
+
+// Cierra el menú hamburguesa al hacer clic fuera si está abierto
+document.addEventListener('click', function(event) {
+  var navbarCollapse = document.getElementById('navbarNav');
+  var toggler = document.querySelector('.navbar-toggler');
+  if (!navbarCollapse || !toggler) return;
+  var isOpen = navbarCollapse.classList.contains('show');
+  // Si el menú está abierto y el clic no es sobre el toggler ni dentro del menú
+  if (isOpen && !navbarCollapse.contains(event.target) && !toggler.contains(event.target)) {
+    toggler.click();
+  }
+});

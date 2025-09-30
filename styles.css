@@ -1,3 +1,21 @@
+
+@font-face {
+  font-family:'adelia' cursive;  
+  src: url('/fonts/adelia.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.title2 {
+  font-family: 'adelia', cursive;
+  font-size: 2.5rem;
+  color: #77DD77;
+  margin: 0;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px #0006;
+  position: relative;
+}
+
 /* Animación para el scroll-down-indicator */
 .scroll-down-indicator {
   animation: scroll-down-bounce 1.4s infinite;
@@ -51,7 +69,7 @@ textarea:focus {
   align-items: center;
   gap: 0.6rem;
   background: #fffbe9;
-  color: #e8c3b944;
+  color: #fff;
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 300;
   font-size: 1rem;
@@ -75,12 +93,13 @@ textarea:focus {
   object-fit: cover;
   filter: brightness(0.7) blur(1px);
   z-index: 1;
+
 }
 .hero-text {
   position: relative;
   z-index: 2;
   text-align: center;
-  color: #fff;
+  color: #fff  !important;
 }
 .nombres {
   font-family: 'Great Vibes', cursive;
@@ -249,20 +268,22 @@ section, .section {
   cursor: pointer;
   transition: background 0.2s;
 }
-.rsvp button:hover {
-  background: #f9e4b7;
-  color: #77DD77;
-  filter: brightness(0.95);
-}
+
 footer {
   text-align: center;
   padding: 1.2rem;
-  background: #FBD794;
+  background: #f9e4b7;
   color: #77DD77;
   border-radius: 0 0 18px 18px;
   margin-top: 2rem;
   font-size: 1rem;
 }
+footer p {
+  margin: 0;
+  text-decoration: underline;
+  color: #28302b !important;
+}
+
 @media (max-width: 900px) {
   .evento, .fiesta-bloques {
     flex-direction: column;
@@ -338,6 +359,7 @@ html, body {
   width: 100%;
   max-width: 400px;
   box-sizing: border-box;
+  
 }
 .evento-box h3, .fiesta-box h3 {
   font-family: 'Dancing Script', cursive;
@@ -406,15 +428,7 @@ button[type="submit"] {
   margin-top: 0.5rem;
 }
 
-footer {
-  text-align: center;
-  padding: 1.2rem 0.5rem;
-  background: #f9e4b7;
-  color: #8B5C2A;
-  font-size: 1rem;
-  border-radius: 0 0 18px 18px;
-  margin-top: 1.5rem;
-}
+
 
 
 /* === DESKTOP (min-width: 768px) === */
@@ -450,6 +464,7 @@ footer {
   font-size: 4rem !important;
   line-height: 1.1;
   font-family: dancing script, cursive;
+  position: relative;
 }
 .evento-box {
   background: rgba(255,255,255,0.85);
@@ -644,6 +659,21 @@ h1, h2, h3, h4, h5, h6, p, .titulo-grande, .contador-label, .lead, .fs-2, .fs-3,
 footer {
   border: none !important;
 }
+
+/* Color para links del modal de alojamiento y números de contacto */
+#modalAlojamientos .modal-body a,
+#contacto a[href^="https://wa.me/"] {
+  color: #5ecb8b !important;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+#modalAlojamientos .modal-body a:hover,
+#contacto a[href^="https://wa.me/"]:hover {
+  color: #3ca96a !important;
+  text-decoration: none;
+}
+
 
 
 
