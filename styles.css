@@ -1,13 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
 
-@font-face {
-  font-family:'adelia' cursive;  
-  src: url('/fonts/adelia.ttf');
-  font-weight: normal;
-  font-style: normal;
-}
 
 .title2 {
-  font-family: 'adelia', cursive;
+  font-family: 'Tangerine';
   font-size: 5rem;
   color: #77DD77;
   margin: 0;
@@ -336,6 +331,13 @@ html, body {
   width: 100vw;
   max-width: 100vw;
   overflow-x: hidden;
+}
+
+
+.navbar-brand{
+  font-family: 'Tangerine', cursive;
+  font-weight: 700;
+  font-style:normal;
 }
 
 
