@@ -49,6 +49,14 @@ document.addEventListener('DOMContentLoaded', function() {
     audio.src = tracks[0].src;
     audio.load();
     if (titleDiv) titleDiv.textContent = tracks[0].title;
+    // Autoplay al cargar la página
+    const playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(function(error) {
+        // Si el navegador bloquea autoplay, mostrar un mensaje o ignorar
+        // Opcional: mostrar un botón para iniciar la música
+      });
+    }
   }
 });
 // Scroll suave al hacer clic en el indicador de flecha y en los enlaces de navegación, dejando la sección alineada arriba (considerando navbar fija)
