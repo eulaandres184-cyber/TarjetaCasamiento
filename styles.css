@@ -471,7 +471,7 @@ button[type="submit"] {
 
 /* === Estilos trasladados desde index.html === */
 .titulo-grande {
-  font-size: 3rem !important;
+  font-size: 4rem !important;
   line-height: 1.1;
   font-family: imperial script, cursive;
   position: relative;
@@ -488,6 +488,8 @@ button[type="submit"] {
   box-shadow: 0 8px 32px 0 rgba(139,92,42,0.18), 0 3px 12px 0 rgba(139,92,42,0.18);
   transform: translateY(-4px) scale(1.02);
 }
+
+/* Modifica el titulo de Tarjeta*/
 .evento-box h3 {
   font-family: 'montserrat';
   font-size: 2rem;
@@ -555,7 +557,7 @@ html, body {
   justify-content: center;
 }
 .fiesta-box h3 {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'montserrat';
   font-size: 2rem;
   color: #8B5C2A;
   margin-bottom: 1rem;
@@ -647,8 +649,6 @@ h1, h2, h3, h4, h5, h6, p, .titulo-grande, .contador-label, .lead, .fs-2, .fs-3,
 /* Ajuste de fondo de cajas */
 .evento-box, .fiesta-box, .modal-content, .popup-contenido {
   background: #fff !important;
-  border: 2px solid #b6f5c6 !important;
-  box-shadow: 0 4px 24px 0 #b6f5c622, 0 1.5px 6px 0 #b6f5c622 !important;
 }
 
 .bg-header, .bg-evento, .bg-galeria, .bg-rsvp, .bg-contacto {
