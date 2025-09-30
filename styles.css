@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
 
+@font-face {
+  font-family: 'adelia';
+  src: url('fonts/Adelia-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+} 
+@font-face{
+  font-family: 'hellohoney', cursive;
+  src: url('/fonts/hello-honey.otf');
+  font-weight: normal;
+  font-style: normal;
+}
 
 .title2 {
   font-family: 'Tangerine';
@@ -78,7 +91,7 @@ textarea:focus {
 .agendar-recordatorio {
   display: flex;
   justify-content: center;
-  margin-top: 1.2rem;
+  color: #fff;
 }
 /* Enlace agendar recordatorio Google Calendar */
 .hero-img {
@@ -170,7 +183,7 @@ section, .section {
   border-radius: 12px;
   padding: 1.2rem;
   margin-bottom: 1rem;
-  box-shadow: 0 1px 6px #5ecb8b22;
+  box-shadow: none !important;
 }
 .evento-bloque h3 {
   color: #5ecb8b;
@@ -191,11 +204,7 @@ section, .section {
   box-shadow: 0 1px 4px #5ecb8b33;
   transition: background 0.2s;
 }
-.btn:hover {
-  background: #a0e9b3;
-  color: #5ecb8b;
-  filter: brightness(0.97);
-}
+
 .btn-link {
   color: #C3CDBF;
   text-decoration: underline;
@@ -229,7 +238,7 @@ section, .section {
   border-radius: 10px;
   padding: 1rem;
   margin-bottom: 1rem;
-  box-shadow: 0 1px 6px #C3CDBF22;
+  box-shadow: none !important;
 }
 .fiesta-bloque h3 {
   color: #C3CDBF;
@@ -354,7 +363,7 @@ html, body {
 .evento-box, .fiesta-box {
   background: rgba(255,255,255,0.92);
   border-radius: 1.2rem;
-  box-shadow: 0 2px 12px 0 rgba(139,92,42,0.10);
+  box-shadow: none !important;
   padding: 1.2rem 1rem 1rem 1rem;
   margin-bottom: 1rem;
   border: 1.5px solid #e8c3b9;
@@ -397,7 +406,7 @@ html, body {
   margin: 0 auto 1rem auto;
   display: block;
   border-radius: 1rem;
-  box-shadow: 0 1px 8px #8B5C2A22;
+  box-shadow: none !important;
 }
 
 /* Animación de ingreso para imágenes de galería (más lenta y fade-in) */
@@ -432,7 +441,6 @@ button[type="submit"] {
 
 
 
-
 /* === DESKTOP (min-width: 768px) === */
 @media (min-width: 768px) {
   .section, section {
@@ -463,26 +471,25 @@ button[type="submit"] {
 
 /* === Estilos trasladados desde index.html === */
 .titulo-grande {
-  font-size: 4rem !important;
+  font-size: 3rem !important;
   line-height: 1.1;
-  font-family: dancing script, cursive;
+  font-family: imperial script, cursive;
   position: relative;
 }
 .evento-box {
   background: rgba(255,255,255,0.85);
   border-radius: 2rem;
-  box-shadow: 0 4px 24px 0 rgba(139,92,42,0.10), 0 1.5px 6px 0 rgba(139,92,42,0.10);
   padding: 2rem 1.5rem 1.5rem 1.5rem;
   margin-bottom: 1.5rem;
   border: 2px solid #e8c3b9;
-  transition: box-shadow 0.2s, transform 0.2s;
+
 }
 .evento-box:hover {
   box-shadow: 0 8px 32px 0 rgba(139,92,42,0.18), 0 3px 12px 0 rgba(139,92,42,0.18);
   transform: translateY(-4px) scale(1.02);
 }
 .evento-box h3 {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'montserrat';
   font-size: 2rem;
   color: #8B5C2A;
   margin-bottom: 1rem;
@@ -587,7 +594,7 @@ html, body {
       font-weight: 700;
       box-shadow: 0 2px 12px 0 rgba(99, 96, 93, 0.1);
       margin-bottom: 0.5rem;
-      border: 2px solid #e8c3b9;
+      border: 2px solid #C3CDBF;
     }
     .contador-label {
       font-size: 1rem;
@@ -628,10 +635,6 @@ h1, h2, h3, h4, h5, h6, p, .titulo-grande, .contador-label, .lead, .fs-2, .fs-3,
   border-radius: 999px !important;
   font-weight: 600;
   transition: background 0.2s, color 0.2s;
-}
-.btn-marron:hover, .agendar-link:hover, .btn:hover, .popup-btn:hover {
-  background: #b6f5c6 !important;
-  color: #222 !important;
 }
 
 /* Ajuste de bordes y sombras para botones verdes claros */
