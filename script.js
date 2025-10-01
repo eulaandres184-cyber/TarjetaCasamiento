@@ -1,8 +1,9 @@
 // Mini-player track controls
 document.addEventListener('DOMContentLoaded', function() {
   const tracks = [
-    {src: 'musica/Lady Gaga Bruno Mars - Die With A Smile.mp3'},
-    {src: 'musica/LexMorris  HALUNA - Summertime Sadness.mp3'},
+    {src: '/musica/Benjamin Amadeo, Soledad - Para Siempre.mp3'},
+    {src: '/musica/Lady Gaga Bruno Mars - Die With A Smile.mp3'},
+    {src: '/musica/LexMorris  HALUNA - Summertime Sadness.mp3'},
   ];
   let currentTrack = 0;
   const audio = document.getElementById('mini-audio');
@@ -52,7 +53,26 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   }
+  // Reproducir siguiente pista al terminar la actual
+    
+    audio.addEventListener('ended', function() {
+      // Calcula el índice del siguiente tema
+      const nextTrackIndex = (currentTrack + 1) % tracks.length;
+      // Llama a setTrack para reproducir el siguiente tema
+      setTrack(nextTrackIndex);
+    });
+
+    // Función para reproducir la siguiente pista automáticamente
+  function playNextTrack() {
+    // Calcula el índice de la siguiente pista, ciclando al principio si es necesario
+    const nextIndex = (currentTrack + 1) % tracks.length;
+    setTrack(nextIndex);
+  }
+
 });
+
+
+
 // Scroll suave al hacer clic en el indicador de flecha y en los enlaces de navegación, dejando la sección alineada arriba (considerando navbar fija)
 document.addEventListener('DOMContentLoaded', function() {
   function scrollToSection(section) {
