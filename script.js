@@ -1,9 +1,11 @@
-// Mini-player track controls
 document.addEventListener('DOMContentLoaded', function() {
+  // 1. Configuración Inicial
   const tracks = [
-    {src: '/musica/Benjamin Amadeo, Soledad - Para Siempre.mp3'},
-    {src: '/musica/Lady Gaga Bruno Mars - Die With A Smile.mp3'},
-    {src: '/musica/LexMorris  HALUNA - Summertime Sadness.mp3'},
+   
+    {src: 'musica/Benjamín Amadeo Soledad - Para Siempre.mp3', title: 'Para Siempre'},
+    {src: 'musica/Lady Gaga Bruno Mars - Die With A Smile.mp3', title: 'Die With A Smile'},
+    {src: 'musica/LexMorris  HALUNA - Summertime Sadness.mp3', title: 'Summertime Sadness'},
+    
   ];
   let currentTrack = 0;
   const audio = document.getElementById('mini-audio');
@@ -11,65 +13,74 @@ document.addEventListener('DOMContentLoaded', function() {
   const prevBtn = document.getElementById('prev-track');
   const nextBtn = document.getElementById('next-track');
   const randomBtn = document.getElementById('random-track');
-  function setTrack(idx) {
-    if (!audio) return;
-    currentTrack = idx;
-    audio.pause();
-    audio.src = tracks[currentTrack].src;
-    audio.load();
-    if (titleDiv) titleDiv.textContent = tracks[currentTrack].title;
-    audio.play();
-  }
-  if (prevBtn) {
-    prevBtn.addEventListener('click', function() {
-      setTrack((currentTrack - 1 + tracks.length) % tracks.length);
-    });
-  }
-  if (nextBtn) {
-    nextBtn.addEventListener('click', function() {
-      setTrack((currentTrack + 1) % tracks.length);
-    });
-  }
-  if (randomBtn) {
-    randomBtn.addEventListener('click', function() {
-      let idx;
-      do {
-        idx = Math.floor(Math.random() * tracks.length);
-      } while (idx === currentTrack && tracks.length > 1);
-      setTrack(idx);
-    });
-  }
-  // Inicializar título y fuente
-  if (audio && tracks.length > 0) {
-    audio.src = tracks[0].src;
-    audio.load();
-    if (titleDiv) titleDiv.textContent = tracks[0].title;
-    // Autoplay al cargar la página
-    const playPromise = audio.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(function(error) {
-        // Si el navegador bloquea autoplay, mostrar un mensaje o ignorar
-        // Opcional: mostrar un botón para iniciar la música
-      });
-    }
-  }
-  // Reproducir siguiente pista al terminar la actual
-    
-    audio.addEventListener('ended', function() {
-      // Calcula el índice del siguiente tema
-      const nextTrackIndex = (currentTrack + 1) % tracks.length;
-      // Llama a setTrack para reproducir el siguiente tema
-      setTrack(nextTrackIndex);
-    });
 
-    // Función para reproducir la siguiente pista automáticamente
+  // 2. Funciones Auxiliares
+
+  // Función para establecer y reproducir una pista
+  function setTrack(index) {
+    if (!audio || !tracks[index]) return; // Verifica que el audio y la pista existan
+    currentTrack = index;
+    audio.src = tracks[index].src;
+    if (titleDiv) titleDiv.textContent = tracks[index].title || 'Título Desconocido'; // Usa el título o un valor predeterminado
+    audio.load();
+    audio.play().catch(error => { // Manejo de errores para autoplay
+      console.warn('Autoplay bloqueado:', error);
+      // Aquí podrías mostrar un botón de "Play" si el autoplay falla
+    });
+  }
+
+  // Función para reproducir la siguiente pista
   function playNextTrack() {
-    // Calcula el índice de la siguiente pista, ciclando al principio si es necesario
     const nextIndex = (currentTrack + 1) % tracks.length;
     setTrack(nextIndex);
   }
 
+  // Función para reproducir la pista anterior
+  function playPrevTrack() {
+    const prevIndex = (currentTrack - 1 + tracks.length) % tracks.length;
+    setTrack(prevIndex);
+  }
+
+  // Función para reproducir una pista aleatoria
+  function playRandomTrack() {
+    let randomIndex;
+    do {
+      randomIndex = Math.floor(Math.random() * tracks.length);
+    } while (tracks.length > 1 && randomIndex === currentTrack); // Evita repetir la misma pista si hay más de una
+    setTrack(randomIndex);
+  }
+
+  // 3. Event Listeners para Controles
+
+  // Botón Anterior
+  if (prevBtn) {
+    prevBtn.addEventListener('click', playPrevTrack);
+  }
+
+  // Botón Siguiente
+  if (nextBtn) {
+    nextBtn.addEventListener('click', playNextTrack);
+  }
+
+  // Botón Aleatorio
+  if (randomBtn) {
+    randomBtn.addEventListener('click', playRandomTrack);
+  }
+
+  // Evento 'ended' para pasar a la siguiente pista automáticamente
+  if (audio) {
+    audio.addEventListener('ended', playNextTrack);
+  }
+
+  // 4. Inicialización
+  if (audio && tracks.length > 0) {
+    setTrack(0); // Inicia con la primera pista
+  }
 });
+
+
+
+
 
 
 

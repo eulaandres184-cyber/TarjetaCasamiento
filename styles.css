@@ -374,10 +374,10 @@ html, body {
   max-width: 400px;
   box-sizing: border-box;
 }
-.fiesta-box h3{
+.fiesta-box h4{
   font-family: montserrat;
-  font-weight: 400;
-  font-size: 2rem;
+  font-weight: 200;
+  font-size: 1rem;
 }
 /* Unificado: títulos de cajas */
 .evento-box h3, .fiesta-box h3 {
