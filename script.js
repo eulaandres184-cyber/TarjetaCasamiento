@@ -1,8 +1,8 @@
 // Mini-player track controls
 document.addEventListener('DOMContentLoaded', function() {
   const tracks = [
-    {src: '/musica/Lady Gaga Bruno Mars - Die with A Samile.mp3'},
-    {src: '/musica/LexMorris  HALUNA - Summertime Sadness.mp3'},
+    {src: 'musica/Lady Gaga Bruno Mars - Die With A Smile.mp3'},
+    {src: 'musica/LexMorris  HALUNA - Summertime Sadness.mp3'},
   ];
   let currentTrack = 0;
   const audio = document.getElementById('mini-audio');
