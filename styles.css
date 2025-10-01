@@ -657,8 +657,11 @@ h1, h2, h3, h4, h5, h6, p, .titulo-grande, .contador-label, .lead, .fs-2, .fs-3,
 }
 
 /* Unificado: fondos de secciones */
-.bg-header, .bg-evento, .bg-galeria, .bg-rsvp, .bg-contacto {
-  background: #fff !important;
+.bg-header, .bg-evento, .bg-galeria  {
+  background: #feeeb8 !important;
+}
+.bg-rsvp, .bg-contacto {
+  background: #f9e4b7 !important;
 }
 
 /* Quitar bordes de colores de contenedores y formularios */
