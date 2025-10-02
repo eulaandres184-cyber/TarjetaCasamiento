@@ -1,23 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
+@import url('https://db.onlinewebfonts.com/c/2b2db6c0de6f5a81aaf4833cc3617d2f?family=Hello+Honey');
 
-@font-face {
+/* @font-face {
   font-family: 'adelia';
   src: url('fonts/Adelia-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-} 
+}  */
 @font-face{
-  font-family: 'hellohoney', cursive;
-  src: url('/fonts/hello-honey.otf');
-  font-weight: normal;
-  font-style: normal;
-}
+  font-family: "Hello Honey";
+    src: url("https://db.onlinewebfonts.com/t/2b2db6c0de6f5a81aaf4833cc3617d2f.eot");
+    src: url("https://db.onlinewebfonts.com/t/2b2db6c0de6f5a81aaf4833cc3617d2f.eot?#iefix")format("embedded-opentype");
+    src: ("https://db.onlinewebfonts.com/t/2b2db6c0de6f5a81aaf4833cc3617d2f.woff2")format("woff2");
+    src: url("https://db.onlinewebfonts.com/t/2b2db6c0de6f5a81aaf4833cc3617d2f.woff")format("woff");
+    src: url("https://db.onlinewebfonts.com/t/2b2db6c0de6f5a81aaf4833cc3617d2f.ttf")format("truetype");
+    src: url("https://db.onlinewebfonts.com/t/2b2db6c0de6f5a81aaf4833cc3617d2f.svg#Hello Honey")format("svg");
+  }
+
 
 .title2 {
-  font-family: 'Tangerine';
+  font-family: 'tangerine', cursive;
   font-size: 5rem;
-  color: #77DD77;
+  margin: 0;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px #0006;
+  position: relative;
+}
+
+.title3 {
+  font-family: 'Hello Honey', cursive;
+  font-size: 3.5rem;
   margin: 0;
   letter-spacing: 2px;
   text-shadow: 0 2px 8px #0006;
@@ -239,7 +252,7 @@ section, .section {
   .fiesta-bloques {
     gap: 0.5rem !important;
   }
-.fiesta-bloque h3 {
+.fiesta-bloque h2 {
   color: #C3CDBF;
   font-family: 'Great Vibes', cursive;
   font-size: 1.3rem;
@@ -344,9 +357,10 @@ html, body {
 
 
 .navbar-brand{
-  font-family: 'Tangerine', cursive;
-  font-weight: 700;
+  font-family: 'Hello Honey', cursive;
+  font-weight: 200;
   font-style:normal;
+  color: rgb(202, 200, 200);  
 }
 .navbar{
   background-color: #C3CDBF !important;
@@ -484,7 +498,7 @@ button[type="submit"] {
   font-size: 3rem !important;
   line-height: 1.1;
   font-family: imperial script, cursive;
-  position: relative;
+  position: sticky-content;
 }
 .evento-box {
   background: rgba(255,255,255,0.85);
