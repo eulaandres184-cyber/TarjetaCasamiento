@@ -14,6 +14,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const nextBtn = document.getElementById('next-track');
   const randomBtn = document.getElementById('random-track');
 
+   // 4. Inicialización
+  if (audio && tracks.length > 0) {
+    setTrack(0); // Inicia con la primera pista
+  }
+
   // 2. Funciones Auxiliares
 
   // Función para establecer y reproducir una pista
@@ -72,10 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
     audio.addEventListener('ended', playNextTrack);
   }
 
-  // 4. Inicialización
-  if (audio && tracks.length > 0) {
-    setTrack(0); // Inicia con la primera pista
-  }
+ 
 });
 
 
