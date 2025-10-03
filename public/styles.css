@@ -357,7 +357,7 @@ html, body {
 
 
 .navbar-brand{
-  font-family: 'DearScript', cursive; 
+  font-family: 'DearScript', cursive;
   font-weight: 200;
   font-style:normal;
   color: rgb(202, 200, 200);  
@@ -391,7 +391,7 @@ html, body {
 .fiesta-box h4{
   font-family: montserrat;
   font-weight: 200;
-  font-size: 1rem;
+  font-size: 1.4rem;
 }
 /* Unificado: títulos de cajas */
 .evento-box h3, .fiesta-box h3 {
@@ -559,7 +559,7 @@ html, body {
   background: rgba(255,255,255,0.85);
   border-radius: 2rem;
   box-shadow: 0 4px 24px 0 rgba(139,92,42,0.10), 0 1.5px 6px 0 rgba(139,92,42,0.10);
-  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  padding: 1  rem 1.5rem 1.5rem 1.5rem;
   margin-bottom: 1.5rem;
   border: 2px solid #e8c3b9;
   transition: box-shadow 0.2s, transform 0.2s;
