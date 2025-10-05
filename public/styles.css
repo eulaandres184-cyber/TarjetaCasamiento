@@ -41,7 +41,7 @@
 .scroll-down-indicator {
   animation: scroll-down-bounce 1.4s infinite;
   cursor: default;
-  display: inline-block;
+  display: inline-block;;
 }
 @keyframes scroll-down-bounce {
   0%, 100% { transform: translateY(0); }
@@ -76,6 +76,26 @@ textarea:focus {
   animation: bounceDown 1.5s infinite;
   cursor: pointer;
 }
+@media (max-width: 700px) {
+  .scroll-down-indicator {
+    left: 50%;
+    right: auto;
+    margin-left: 0;
+    transform: translateX(-50%);
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 2px;
+  }
+  .scroll-down-indicator svg {
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+
 /* Indicador de scroll hacia abajo en header */
 .agendar-link svg {
   flex-shrink: 0;
@@ -703,7 +723,67 @@ footer {
   text-decoration: none;
 }
 
+/* Animación de Fade-In para el modal de bienvenida */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
+#modal-bienvenida h2, #modal-bienvenida #btn-ingresar {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Imagen de fondo parallax para el header */
+.header-bg-parallax {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 0;
+  background-image: url('img/foto7.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  pointer-events: none;
+  will-change: background-position;
+  transition: background-position 0.2s;
+}
+
+@media (max-width: 700px) {
+  .header-bg-parallax {
+    width: 100vw;
+    min-width: 80vw;
+    left: 0;
+    right: 0;
+    height: 100%;
+    min-height: 220px;
+    background-size: cover;
+    background-position: center center;
+    object-fit: cover;
+  }
+}
+
+header#header {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+header#header > *:not(.header-bg-parallax) {
+  position: relative;
+  z-index: 2;
+}
+
+/* Fade-out para el modal de bienvenida */
+#modal-bienvenida {
+  opacity: 1;
+  transition: opacity 0.7s cubic-bezier(.7,0,.3,1);
+}
 
 
 /* Bordes negros para los textbox de los formularios */

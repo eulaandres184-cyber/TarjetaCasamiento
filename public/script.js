@@ -1,11 +1,38 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // Parallax header background
+  const headerBg = document.querySelector('.header-bg-parallax');
+  if (headerBg) {
+    window.addEventListener('scroll', function() {
+      const scrolled = window.scrollY;
+      // Parallax: mueve el fondo más lento que el scroll
+      headerBg.style.backgroundPosition = `center ${scrolled * 0.4}px`;
+    });
+  }
+  // Modal de bienvenida fade-out
+  const modalBienvenida = document.getElementById('modal-bienvenida');
+  const btnIngresar = document.getElementById('btn-ingresar');
+  if (modalBienvenida && btnIngresar) {
+    btnIngresar.addEventListener('click', function() {
+      modalBienvenida.style.transition = 'opacity 0.7s cubic-bezier(.7,0,.3,1)';
+      modalBienvenida.style.opacity = '0';
+      setTimeout(function() {
+        modalBienvenida.style.display = 'none';
+        document.body.style.overflow = '';
+      }, 700);
+      // Opcional: permitir scroll al mostrar el sitio
+      document.body.style.overflow = '';
+    });
+    // Opcional: bloquear scroll mientras el modal está visible
+    document.body.style.overflow = 'hidden';
+  }
   // 1. Configuración Inicial
   const tracks = [
-   
+    
+    {src: 'musica/Thalia, Pedro Capo - Estoy Enamorado.mp3'},
     {src: 'musica/Benjamín Amadeo Soledad - Para Siempre.mp3', title: 'Para Siempre'},
     {src: 'musica/Lady Gaga Bruno Mars - Die With A Smile.mp3', title: 'Die With A Smile'},
     {src: 'musica/LexMorris  HALUNA - Summertime Sadness.mp3', title: 'Summertime Sadness'},
-    
+        
   ];
   let currentTrack = 0;
   const audio = document.getElementById('mini-audio');
@@ -16,22 +43,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
    // 4. Inicialización
   if (audio && tracks.length > 0) {
-    setTrack(0); // Inicia con la primera pista
+    setTrack(0, true); // Solo carga la pista, no la reproduce
   }
 
   // 2. Funciones Auxiliares
 
   // Función para establecer y reproducir una pista
-  function setTrack(index) {
+  function setTrack(index, onlyLoad) {
     if (!audio || !tracks[index]) return; // Verifica que el audio y la pista existan
     currentTrack = index;
     audio.src = tracks[index].src;
     if (titleDiv) titleDiv.textContent = tracks[index].title || 'Título Desconocido'; // Usa el título o un valor predeterminado
     audio.load();
-    audio.play().catch(error => { // Manejo de errores para autoplay
-      console.warn('Autoplay bloqueado:', error);
-      // Aquí podrías mostrar un botón de "Play" si el autoplay falla
-    });
+    if (!onlyLoad) {
+      audio.play().catch(error => {
+        console.warn('Autoplay bloqueado:', error);
+      });
+    }
   }
 
   // Función para reproducir la siguiente pista
@@ -79,11 +107,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
  
 });
-
-
-
-
-
 
 
 // Scroll suave al hacer clic en el indicador de flecha y en los enlaces de navegación, dejando la sección alineada arriba (considerando navbar fija)
