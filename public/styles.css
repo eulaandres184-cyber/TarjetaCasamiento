@@ -474,6 +474,12 @@ button[type="submit"] {
   margin-top: 0.5rem;
 }
 
+.contacto{
+  color: #a3d78e;
+  text-decoration: underline;
+  margin-left: 0.5rem;
+  font-size: 0.98rem;
+}
 
 
 /* === DESKTOP (min-width: 768px) === */
@@ -702,14 +708,14 @@ footer {
 /* Color para links del modal de alojamiento y números de contacto */
 #modalAlojamientos .modal-body a,
 #contacto a[href^="https://wa.me/"] {
-  color: #C3CDBF !important;
+  color: #a3d78e !important;
   font-weight: 600;
   text-decoration: underline;
   transition: color 0.2s;
 }
 #modalAlojamientos .modal-body a:hover,
 #contacto a[href^="https://wa.me/"]:hover {
-  color: #C3CDBF !important;
+  color: #a3d78e !important;
   text-decoration: none;
 }
 
