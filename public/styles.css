@@ -759,7 +759,7 @@ header#header {
 .header-col-img .header-img {
   width: 50%;
   height: 50%;
-  object-fit: cover;
+  object-fit: fill;
   display: block;
 }
 .header-fade {
@@ -803,17 +803,16 @@ header#header {
     border: 0;
   }
   .header-col-img .header-img {
-    width: 50vw;
-    max-width: 50vw;
+    width: 100vw;
+    max-width: fit-content;
     min-width: 0;
-    height: auto;
+    height: fit-content;
     min-height: 180px;
     display: block;
-    object-fit: cover;
+    object-fit: scale-down;
     padding: 0;
     margin: 0;
     border: 0;
-    border-radius: 15px;
   }
   .header-fade {
     right: 0;
