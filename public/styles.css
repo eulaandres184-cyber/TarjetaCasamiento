@@ -304,19 +304,11 @@ section, .section {
   transition: background 0.2s;
 }
 
-footer {
-  text-align: center;
-  padding: 1.2rem;
-  background: #fff !important;
-  color: #77DD77;
-  border-radius: 0 0 18px 18px;
-  margin-top: 2rem;
-  font-size: 1rem;
-}
+/*  */
 footer p {
   margin: 0;
   text-decoration: underline;
-  color: #28302b !important;
+  color: #5d605e !important;
 }
 
 @media (max-width: 900px) {
@@ -692,7 +684,7 @@ h1, h2, h3, h4, h5, h6, p, .titulo-grande, .contador-label, .lead, .fs-2, .fs-3,
 }
 
 /* Unificado: fondos de secciones */
-.bg-header, .bg-evento, .bg-galeria, .bg-rsvp, .bg-contacto {
+.bg-header, .bg-evento, .bg-rsvp {
   background: #fffff9 !important;
 }
 
@@ -705,7 +697,6 @@ h1, h2, h3, h4, h5, h6, p, .titulo-grande, .contador-label, .lead, .fs-2, .fs-3,
 .popup-contenido,
 footer {
   border: none !important;
-  background-color: whitesmoke;
 }
 
 /* Color para links del modal de alojamiento y números de contacto */
