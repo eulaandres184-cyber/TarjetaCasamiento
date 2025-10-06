@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     {src: 'musica/Benjamín Amadeo Soledad - Para Siempre.mp3', title: 'Para Siempre'},
     {src: 'musica/Thalia, Pedro Capo - Estoy Enamorado.mp3', title: 'Estoy Enamorado'},
-    {src: 'musica/Benjamín Amadeo Soledad - Para Siempre.mp3', title: 'Para Siempre'},
     {src: 'musica/Lady Gaga Bruno Mars - Die With A Smile.mp3', title: 'Die With A Smile'},
     {src: 'musica/LexMorris  HALUNA - Summertime Sadness.mp3', title: 'Summertime Sadness'},
     
