@@ -26,7 +26,90 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.style.overflow = 'hidden';
   }
 
- /*  */
+  //REPRODUCTO DE MUSICA
+  // 1. Configuración Inicial
+  const tracks = [
+    
+    {src: 'musica/Benjamín Amadeo Soledad - Para Siempre.mp3', title: 'Para Siempre'},
+    {src: 'musica/Thalia, Pedro Capo - Estoy Enamorado.mp3', title: 'Estoy Enamorado'},
+    {src: 'musica/Lady Gaga Bruno Mars - Die With A Smile.mp3', title: 'Die With A Smile'},
+    {src: 'musica/LexMorris  HALUNA - Summertime Sadness.mp3', title: 'Summertime Sadness'},
+    
+  ];
+  let currentTrack = 0;
+  const audio = document.getElementById('mini-audio');
+  const titleDiv = document.getElementById('track-title');
+  const prevBtn = document.getElementById('prev-track');
+  const nextBtn = document.getElementById('next-track');
+  const randomBtn = document.getElementById('random-track');
+
+
+  // 2. Funciones Auxiliares
+
+  // Función para establecer y reproducir una pista
+  function setTrack(index, onlyLoad) {
+    if (!audio || !tracks[index]) return; // Verifica que el audio y la pista existan
+    currentTrack = index;
+    audio.src = tracks[index].src;
+    if (titleDiv) titleDiv.textContent = tracks[index].title || 'Título Desconocido'; // Usa el título o un valor predeterminado
+    audio.load();
+    if (!onlyLoad) {
+      audio.play().catch(error => {
+        console.warn('Autoplay bloqueado:', error);
+      });
+    }
+  }
+
+  // Función para reproducir la siguiente pista
+  function playNextTrack() {
+    const nextIndex = (currentTrack + 1) % tracks.length;
+    setTrack(nextIndex);
+  }
+
+  // Función para reproducir la pista anterior
+  function playPrevTrack() {
+    const prevIndex = (currentTrack - 1 + tracks.length) % tracks.length;
+    setTrack(prevIndex);
+  }
+
+  // Función para reproducir una pista aleatoria
+  function playRandomTrack() {
+    let randomIndex;
+    do {
+      randomIndex = Math.floor(Math.random() * tracks.length);
+    } while (tracks.length > 1 && randomIndex === currentTrack); // Evita repetir la misma pista si hay más de una
+    setTrack(randomIndex);
+  }
+
+  // 3. Event Listeners para Controles
+
+  // Botón Anterior
+  if (prevBtn) {
+    prevBtn.addEventListener('click', playPrevTrack);
+  }
+
+  // Botón Siguiente
+  if (nextBtn) {
+    nextBtn.addEventListener('click', playNextTrack);
+  }
+
+  // Botón Aleatorio
+  if (randomBtn) {
+    randomBtn.addEventListener('click', playRandomTrack);
+  }
+
+    // Al terminar una canción, pasa a la siguiente
+  if (audio) {
+    audio.addEventListener('ended', playNextTrack);
+  }
+
+   // 4. Inicialización
+  if (audio && tracks.length > 0) {
+    setTrack(0, true); // Solo carga la pista, no la reproduce
+  } 
+});
+
+
 // Scroll suave al hacer clic en el indicador de flecha y en los enlaces de navegación, dejando la sección alineada arriba (considerando navbar fija)
 document.addEventListener('DOMContentLoaded', function() {
   function scrollToSection(section) {
