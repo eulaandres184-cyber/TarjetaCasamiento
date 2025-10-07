@@ -354,5 +354,71 @@
       </div>
     </div>
   </div>
+
+  <script>
+  const tracks = [
+    {src: 'musica/Benjamín Amadeo Soledad - Para Siempre.mp3', title: 'Para Siempre'},
+    {src: 'musica/Thalia, Pedro Capo - Estoy Enamorado.mp3', title: 'Estoy Enamorado'},
+    {src: 'musica/Lady Gaga Bruno Mars - Die With A Smile.mp3', title: 'Die With A Smile'},
+    {src: 'musica/LexMorris  HALUNA - Summertime Sadness.mp3', title: 'Summertime Sadness'},
+  ];
+
+  let currentTrack = 0;
+  const audio = document.getElementById('mini-audio');
+  const titleDiv = document.getElementById('track-title');
+  const prevBtn = document.getElementById('prev-track');
+  const nextBtn = document.getElementById('next-track');
+  const randomBtn = document.getElementById('random-track');
+
+  // Función para establecer y reproducir una pista
+  function setTrack(index, onlyLoad) {
+    if (!audio || !tracks[index]) return;
+    currentTrack = index;
+    audio.src = tracks[index].src;
+    if (titleDiv) titleDiv.textContent = tracks[index].title || 'Título Desconocido';
+    audio.load();
+    if (!onlyLoad) {
+      audio.play().catch(error => {
+        console.warn('Autoplay bloqueado:', error);
+      });
+    }
+  }
+
+  // Función para reproducir la siguiente pista
+  function playNextTrack() {
+    const nextIndex = (currentTrack + 1) % tracks.length;
+    setTrack(nextIndex);
+  }
+
+  // Función para reproducir la pista anterior
+  function playPrevTrack() {
+    const prevIndex = (currentTrack - 1 + tracks.length) % tracks.length;
+    setTrack(prevIndex);
+  }
+
+  // Función para reproducir una pista aleatoria
+  function playRandomTrack() {
+    let randomIndex;
+    do {
+      randomIndex = Math.floor(Math.random() * tracks.length);
+    } while (tracks.length > 1 && randomIndex === currentTrack);
+    setTrack(randomIndex);
+  }
+
+  // Event Listeners
+  if (prevBtn) prevBtn.addEventListener('click', playPrevTrack);
+  if (nextBtn) nextBtn.addEventListener('click', playNextTrack);
+  if (randomBtn) randomBtn.addEventListener('click', playRandomTrack);
+
+  // Al terminar una canción, pasa a la siguiente
+  if (audio) audio.addEventListener('ended', playNextTrack);
+
+  // Inicialización: carga la primera pista sin reproducir
+  if (audio && tracks.length > 0) {
+    setTrack(0, true);
+  }
+</script>
+
+  
 </body>
 </html>
