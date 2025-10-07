@@ -10,13 +10,14 @@
 } 
 @font-face{
   font-family: "Hello Honey";
-    src: url("https://db.onlinewebfonts.com/t/2b2db6c0de6f5a81aaf4833cc3617d2f.eot");
+    /* src: url("https://db.onlinewebfonts.com/t/2b2db6c0de6f5a81aaf4833cc3617d2f.eot");
     src: url("https://db.onlinewebfonts.com/t/2b2db6c0de6f5a81aaf4833cc3617d2f.eot?#iefix")format("embedded-opentype");
     src: ("https://db.onlinewebfonts.com/t/2b2db6c0de6f5a81aaf4833cc3617d2f.woff2")format("woff2");
     src: url("https://db.onlinewebfonts.com/t/2b2db6c0de6f5a81aaf4833cc3617d2f.woff")format("woff");
     src: url("https://db.onlinewebfonts.com/t/2b2db6c0de6f5a81aaf4833cc3617d2f.ttf")format("truetype");
-    src: url("https://db.onlinewebfonts.com/t/2b2db6c0de6f5a81aaf4833cc3617d2f.svg#Hello Honey")format("svg");
-  }
+    src: url("https://db.onlinewebfonts.com/t/2b2db6c0de6f5a81aaf4833cc3617d2f.svg#Hello Honey")format("svg"); */
+    src: url(/public/fonts/hello-honey.otf);
+}
 
 
 .title2 {
