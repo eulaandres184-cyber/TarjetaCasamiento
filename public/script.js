@@ -296,7 +296,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Contador regresivo con círculos
 function actualizarContador() {
-  const fechaBoda = new Date('2026-02-21T20:00:00');
+  const fechaBoda = new Date('2026-02-21T20:30:00');
   const ahora = new Date();
   const diff = fechaBoda - ahora;
   if (diff <= 0) {
