@@ -199,27 +199,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
   }
-  // Contacto
-  var contactoForm = document.querySelector('section#contacto form');
-  if (contactoForm && typeof db !== 'undefined') {
-    contactoForm.addEventListener('submit', function(e) {
+// Sugerir tema
+document.addEventListener('DOMContentLoaded', function() {
+  var sugerirTemaForm = document.querySelector('form#form-sugerir-tema');
+  if (sugerirTemaForm && typeof db !== 'undefined') {
+    sugerirTemaForm.addEventListener('submit', function(e) {
       e.preventDefault();
+
+      // 1. Recopilar datos del formulario
       const data = {
-        nombre: contactoForm.querySelector('input[type="text"]').value,
-        mensaje: contactoForm.querySelector('textarea').value,
+        nombre: sugerirTemaForm.querySelector('#nombre-sugerente').value,
+        youtube: sugerirTemaForm.querySelector('#youtube-link').value,
         fecha: new Date().toISOString()
       };
-      db.collection('contacto').add(data)
+
+      // 2. Enviar datos a la base de datos
+      db.collection('sugerencias').add(data) // Cambiado 'contacto' por 'sugerencias'
         .then(() => {
-          contactoForm.reset();
-          showSuccessModal();
+          sugerirTemaForm.reset();
+          showSuccessModal(); // Asumiendo que esta función existe y muestra un mensaje de éxito
         })
         .catch(() => {
-          alert('Error al enviar. Intenta nuevamente.');
+          alert('Error al enviar la sugerencia. Intenta nuevamente.');
         });
     });
   }
 });
+
 
 // Fade-out al recargar la página (opcional, mobile friendly)
 window.addEventListener('beforeunload', function () {
