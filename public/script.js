@@ -155,6 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Configuración de Firebase
+let db; // referencia a Firestore (se asigna si firebase está disponible)
 const firebaseConfig = {
   apiKey: "AIzaSyALvl8xhRRE4OMSXv7kCNZREzfuqyJfla0",
   authDomain: "tarjeta-casamiento-fc0da.firebaseapp.com",
@@ -166,7 +167,7 @@ const firebaseConfig = {
 };
 if (typeof firebase !== 'undefined') {
   firebase.initializeApp(firebaseConfig);
-  var db = firebase.firestore();
+  db = firebase.firestore();
 }
 
 // Función para mostrar el modal de éxito
@@ -199,6 +200,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
   }
+});
+
 // Sugerir tema
 document.addEventListener('DOMContentLoaded', function() {
   var sugerirTemaForm = document.querySelector('form#form-sugerir-tema');
@@ -214,12 +217,20 @@ document.addEventListener('DOMContentLoaded', function() {
       };
 
       // 2. Enviar datos a la base de datos
+      if (!db) {
+        console.warn('Firestore no disponible. No se enviará la sugerencia:', data);
+        alert('Servicio no disponible. Intenta nuevamente más tarde.');
+        return;
+      }
+      console.log('Enviando sugerencia a Firestore...', data);
       db.collection('sugerencias').add(data) // Cambiado 'contacto' por 'sugerencias'
-        .then(() => {
+        .then((docRef) => {
+          console.log('Sugerencia guardada con ID:', docRef.id);
           sugerirTemaForm.reset();
           showSuccessModal(); // Asumiendo que esta función existe y muestra un mensaje de éxito
         })
-        .catch(() => {
+        .catch((err) => {
+          console.error('Error al enviar la sugerencia a Firestore:', err);
           alert('Error al enviar la sugerencia. Intenta nuevamente.');
         });
     });
@@ -341,13 +352,19 @@ actualizarContador();
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('form-rsvp');
   const mensaje = document.getElementById('rsvp-mensaje');
-  if (form) {
+  if (form && !db) {
+    // Fallback cuando Firestore no está disponible: solo mostrar mensaje en frontend
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      mensaje.textContent = '¡Gracias por confirmar tu asistencia!';
-      mensaje.style.color = '#4caf50';
+      if (mensaje) {
+        mensaje.textContent = '¡Gracias por confirmar tu asistencia!';
+        mensaje.style.color = '#4caf50';
+      }
       form.reset();
     });
+  } else if (form && db) {
+    // Si db está disponible, preferimos el handler que envía a Firestore (ya registrado más arriba)
+    console.log('RSVP: Firestore disponible, usando envío a la base de datos.');
   }
 });
 // Scroll suave con offset para navbar fija
